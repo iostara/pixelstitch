@@ -13,6 +13,10 @@ config_version=5
 config/name="pixelstitch"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/stretch/aspect="expand"
