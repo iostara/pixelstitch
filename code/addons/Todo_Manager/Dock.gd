@@ -31,7 +31,7 @@ var auto_refresh := true
 var builtin_enabled := false
 var _sort_alphabetical := true
 
-var patterns := [["\\bTODO\\b", Color("96f1ad"), CASE_INSENSITIVE, true], ["\\bHACK\\b", Color("d5bc70"), CASE_INSENSITIVE, true], ["\\bFIXME\\b", Color("d57070"), CASE_INSENSITIVE, true]]
+var patterns := [["\\bTODO\\b", Color("96f1ad"), CASE_INSENSITIVE, true], ["\\bHACK\\b", Color("d5bc70"), CASE_INSENSITIVE, true]]
 
 @onready var tabs := $VBoxContainer/TabContainer as TabContainer
 @onready var project := $VBoxContainer/TabContainer/Project as Project
