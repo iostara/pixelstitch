@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Content" load_steps=3 format=3 uid="uid://cpfe68y787jur"]
+
+[ext_resource type="Texture2D" uid="uid://dlcwn6vafbf3u" path="res://images/RobertDelaunay.jpg" id="1_lkfuc"]
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="1_ykeug"]
+
+[resource]
+script = ExtResource("1_ykeug")
+headline_text = "CAN YOU RECREATE THIS IMAGE AS PIXEL ART?"
+body_text = "Robert Delaunay: Portrait of Jean Metzinger"
+image = ExtResource("1_lkfuc")

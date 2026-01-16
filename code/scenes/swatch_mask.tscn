@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://chwp364gb8p0r"]
+
+[ext_resource type="Shader" uid="uid://bsb0fuvst0gae" path="res://shaders/color_swatch_mask.gdshader" id="1_5tjkg"]
+[ext_resource type="Script" uid="uid://c1cmjls57db5t" path="res://scripts/swatch_mask.gd" id="2_wnbvj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tquji"]
+shader = ExtResource("1_5tjkg")
+shader_parameter/circle_size = 0.4
+shader_parameter/screen_width = 100.0
+shader_parameter/screen_height = 100.0
+
+[sub_resource type="Animation" id="Animation_57ysx"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_tquji")]
+}
+
+[sub_resource type="Animation" id="Animation_1fxhi"]
+resource_name = "on_clicked"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkiak"]
+_data = {
+&"RESET": SubResource("Animation_57ysx"),
+&"on_clicked": SubResource("Animation_1fxhi")
+}
+
+[node name="SwatchMask" type="ColorRect"]
+material = SubResource("ShaderMaterial_tquji")
+mouse_filter = 2
+script = ExtResource("2_wnbvj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dkiak")
+}

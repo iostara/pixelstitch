@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Content" load_steps=3 format=3 uid="uid://cldp01fgcjpxk"]
+
+[ext_resource type="Texture2D" uid="uid://c2wmmp2t16hmv" path="res://images/HenriEdmondCross.jpg" id="1_s3f3b"]
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="1_yreum"]
+
+[resource]
+script = ExtResource("1_yreum")
+headline_text = "CAN YOU RECREATE THIS IMAGE AS PIXEL ART?"
+body_text = "Henri-Edmond Cross: L'air du soir"
+image = ExtResource("1_s3f3b")

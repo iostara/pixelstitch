@@ -1,0 +1,93 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://by45e5y3feaxq"]
+
+[ext_resource type="FontFile" uid="uid://drsiytqr0bqw" path="res://fonts/GT-Pressura-Bold.ttf" id="1_fxphb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvqh8"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.627451, 0.878431, 1)
+corner_detail = 7
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72dme"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef8fx"]
+content_margin_left = 25.0
+content_margin_top = 25.0
+content_margin_right = 25.0
+content_margin_bottom = 25.0
+bg_color = Color(0, 0.227451, 0.364706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qukp"]
+bg_color = Color(0.458824, 0.403922, 0.462745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikpoc"]
+bg_color = Color(0.752941, 0.827451, 0.858824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe8a7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01013"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[resource]
+Button/colors/font_color = Color(0, 0.227451, 0.364706, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_fxphb")
+Button/styles/normal = SubResource("StyleBoxFlat_lvqh8")
+Panel/styles/panel = SubResource("StyleBoxFlat_72dme")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ef8fx")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/constants/table_h_separation = 3
+RichTextLabel/constants/table_v_separation = 3
+RichTextLabel/constants/text_highlight_h_padding = 3
+RichTextLabel/constants/text_highlight_v_padding = 3
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("1_fxphb")
+RichTextLabel/styles/background = SubResource("StyleBoxFlat_3qukp")
+RichTextLabel/styles/fill = SubResource("StyleBoxFlat_ikpoc")
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_oe8a7")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_01013")

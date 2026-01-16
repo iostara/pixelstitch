@@ -1,0 +1,451 @@
+[gd_scene load_steps=46 format=3 uid="uid://c063ti8hg5mk3"]
+
+[ext_resource type="Script" uid="uid://bk10uena3j51y" path="res://scripts/main_scene.gd" id="1_x6qfb"]
+[ext_resource type="Script" uid="uid://cadxdelslv0se" path="res://scripts/pixel_grid.gd" id="2_7navx"]
+[ext_resource type="FontFile" uid="uid://bl8fl15cutidc" path="res://fonts/moderat-medium.ttf" id="2_lafci"]
+[ext_resource type="Theme" uid="uid://03uj4tl6r2j5" path="res://themes/color_panel_theme.tres" id="3_4ymxe"]
+[ext_resource type="Script" uid="uid://dwjt4eym0px6u" path="res://scripts/content_panel.gd" id="3_7kosc"]
+[ext_resource type="Script" uid="uid://ccv8r3xmu8gvy" path="res://scripts/color_picker.gd" id="3_celc6"]
+[ext_resource type="Script" uid="uid://cw645eu17a5ox" path="res://scripts/content_stack.gd" id="3_i3yvw"]
+[ext_resource type="Script" uid="uid://bd58hypqt2612" path="res://scripts/color_palette.gd" id="3_rhssy"]
+[ext_resource type="Resource" uid="uid://cdxbk8gebopqo" path="res://prompts/default_content.tres" id="4_5oyif"]
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="5_lqypc"]
+[ext_resource type="Script" uid="uid://c7wdxxo3aiesv" path="res://scripts/reset_confirm.gd" id="6_2nakp"]
+[ext_resource type="PackedScene" uid="uid://tm4wvtxirrw5" path="res://scenes/swatch_container.tscn" id="6_sq6ad"]
+[ext_resource type="Resource" uid="uid://dhksbbsmxchxi" path="res://prompts/innovation_station.tres" id="7_6qvcr"]
+[ext_resource type="Shader" uid="uid://cfnr8cf01j3eq" path="res://shaders/frosted_glass.gdshader" id="7_p7ow4"]
+[ext_resource type="Script" uid="uid://cvau8rnsjq3s0" path="res://scripts/content_frost_effect.gd" id="8_n3fgv"]
+[ext_resource type="AudioStream" uid="uid://wufbew56nce4" path="res://audio/drop_004.ogg" id="10_2ln5y"]
+[ext_resource type="Theme" uid="uid://by45e5y3feaxq" path="res://themes/generic_theme.tres" id="10_s82ok"]
+[ext_resource type="Texture2D" uid="uid://dbqvcvvxmv1e2" path="res://images/undo.svg" id="11_0d6ip"]
+[ext_resource type="Script" uid="uid://dsl4hv50ssvh1" path="res://draw_sound.gd" id="11_20t6q"]
+[ext_resource type="Texture2D" uid="uid://b54nm4ninsfmx" path="res://images/redo.svg" id="12_8a335"]
+[ext_resource type="Script" uid="uid://dmpwv5i64ryu2" path="res://undo.gd" id="12_ccvyp"]
+[ext_resource type="AudioStream" uid="uid://b7yy8ubk27ahn" path="res://audio/drop_002.ogg" id="13_v0dwe"]
+[ext_resource type="AudioStream" uid="uid://dbfaf5pj74w4e" path="res://audio/drop_003.ogg" id="14_2rpx0"]
+[ext_resource type="Script" uid="uid://djtju8vvjmvnw" path="res://redo.gd" id="14_60j4h"]
+[ext_resource type="Script" uid="uid://domuuujt0olv4" path="res://undo_redo.gd" id="15_2ygmv"]
+[ext_resource type="AudioStream" uid="uid://b4rsby8vgbyo1" path="res://audio/switch_004.ogg" id="20_a4k0h"]
+[ext_resource type="AudioStream" uid="uid://mwvd0ttk3lb8" path="res://audio/select_006.ogg" id="22_knkmh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kkcm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_163kg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukc5n"]
+
+[sub_resource type="Theme" id="Theme_2d7ds"]
+Button/styles/focus = SubResource("StyleBoxEmpty_163kg")
+Button/styles/hover = SubResource("StyleBoxEmpty_ukc5n")
+
+[sub_resource type="Animation" id="Animation_88ovf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [122]
+}
+
+[sub_resource type="Animation" id="Animation_qt7qe"]
+resource_name = "push"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0334333, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [50, 50, 122]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4blo7"]
+_data = {
+&"RESET": SubResource("Animation_88ovf"),
+&"push": SubResource("Animation_qt7qe")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbl45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mmok"]
+
+[sub_resource type="Theme" id="Theme_yi2xk"]
+Button/styles/focus = SubResource("StyleBoxEmpty_xbl45")
+Button/styles/hover = SubResource("StyleBoxEmpty_3mmok")
+
+[sub_resource type="Animation" id="Animation_mltnr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [122]
+}
+
+[sub_resource type="Animation" id="Animation_p18as"]
+resource_name = "push"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_constants/icon_max_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 122]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btvr1"]
+_data = {
+&"RESET": SubResource("Animation_mltnr"),
+&"push": SubResource("Animation_p18as")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5wqk"]
+shader = ExtResource("7_p7ow4")
+shader_parameter/g_color = Color(1, 1, 1, 0)
+shader_parameter/g_blur = 0.0
+
+[sub_resource type="Theme" id="Theme_ion8s"]
+
+[sub_resource type="Animation" id="Animation_jtgii"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/g_blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_o5wqk")]
+}
+
+[sub_resource type="Animation" id="Animation_72e6e"]
+resource_name = "blur_in_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_o5wqk")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/g_blur")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 1)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%ContentPanel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"refreshContent"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlgil"]
+_data = {
+&"RESET": SubResource("Animation_jtgii"),
+&"blur_in_out": SubResource("Animation_72e6e")
+}
+
+[node name="MainScene" type="Node"]
+script = ExtResource("1_x6qfb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScreenPanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("10_s82ok")
+
+[node name="ContentPanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1500.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("10_s82ok")
+script = ExtResource("3_7kosc")
+
+[node name="ContentStack" type="VBoxContainer" parent="CanvasLayer/ScreenPanel/ContentPanel"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("3_i3yvw")
+current_content = ExtResource("4_5oyif")
+content_list = Array[ExtResource("5_lqypc")]([ExtResource("7_6qvcr"), ExtResource("4_5oyif")])
+
+[node name="TextStack" type="VBoxContainer" parent="CanvasLayer/ScreenPanel/ContentPanel/ContentStack"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HeadlineContent" type="RichTextLabel" parent="CanvasLayer/ScreenPanel/ContentPanel/ContentStack/TextStack"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("10_s82ok")
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "HEADLINE"
+scroll_active = false
+
+[node name="BodyContent" type="RichTextLabel" parent="CanvasLayer/ScreenPanel/ContentPanel/ContentStack/TextStack"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("10_s82ok")
+theme_override_fonts/normal_font = ExtResource("2_lafci")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Body text. Three sentences. That's it."
+scroll_active = false
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/ScreenPanel/ContentPanel/ContentStack"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ImageContent" type="TextureRect" parent="CanvasLayer/ScreenPanel/ContentPanel/ContentStack/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 2
+stretch_mode = 5
+
+[node name="PixelGridPanel" type="AspectRatioContainer" parent="CanvasLayer/ScreenPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("10_s82ok")
+
+[node name="GridBackground" type="PanelContainer" parent="CanvasLayer/ScreenPanel/PixelGridPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kkcm")
+
+[node name="PixelGrid" type="GridContainer" parent="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_7navx")
+grid_size = 16
+
+[node name="DrawSound" type="AudioStreamPlayer2D" parent="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid"]
+unique_name_in_owner = true
+stream = ExtResource("10_2ln5y")
+script = ExtResource("11_20t6q")
+sound_bank = Array[AudioStreamOggVorbis]([ExtResource("13_v0dwe"), ExtResource("14_2rpx0"), ExtResource("10_2ln5y")])
+
+[node name="ControlPanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1606.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("3_4ymxe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ScreenPanel/ControlPanel"]
+layout_mode = 2
+
+[node name="UndoRedo" type="HBoxContainer" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.21
+script = ExtResource("15_2ygmv")
+
+[node name="Undo" type="Button" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_2d7ds")
+theme_override_constants/icon_max_width = 122
+theme_override_icons/icon = ExtResource("11_0d6ip")
+action_mode = 0
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("12_ccvyp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Undo"]
+libraries = {
+&"": SubResource("AnimationLibrary_4blo7")
+}
+
+[node name="Redo" type="Button" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_yi2xk")
+theme_override_constants/icon_max_width = 122
+theme_override_icons/icon = ExtResource("12_8a335")
+action_mode = 0
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14_60j4h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Redo"]
+libraries = {
+&"": SubResource("AnimationLibrary_btvr1")
+}
+
+[node name="UndoRedoSound" type="AudioStreamPlayer2D" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo"]
+unique_name_in_owner = true
+position = Vector2(-1631, -25)
+stream = ExtResource("20_a4k0h")
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer" groups=["color_picker"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/sv_height = 300
+alignment = 1
+color = Color(0, 0, 0, 1)
+edit_alpha = false
+picker_shape = 1
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+script = ExtResource("3_celc6")
+
+[node name="PickerSound" type="AudioStreamPlayer2D" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker"]
+unique_name_in_owner = true
+stream = ExtResource("22_knkmh")
+
+[node name="ColorPalette" type="GridContainer" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer" node_paths=PackedStringArray("swatch_node")]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("10_s82ok")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 0
+columns = 2
+script = ExtResource("3_rhssy")
+swatch_node = [NodePath("SwatchContainer0"), NodePath("SwatchContainer1"), NodePath("SwatchContainer2"), NodePath("SwatchContainer3"), NodePath("SwatchContainer4"), NodePath("SwatchContainer5"), NodePath("SwatchContainer6"), NodePath("SwatchContainer7")]
+
+[node name="SwatchContainer0" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer1" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer2" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer3" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer4" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer5" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer6" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="SwatchContainer7" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
+layout_mode = 2
+
+[node name="ContentFrostEffect" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_o5wqk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1500.0
+theme = SubResource("Theme_ion8s")
+script = ExtResource("8_n3fgv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ContentFrostEffect"]
+libraries = {
+&"": SubResource("AnimationLibrary_mlgil")
+}
+
+[node name="ResetConfirm" type="ConfirmationDialog" parent="CanvasLayer"]
+title = "RESET"
+initial_position = 2
+size = Vector2i(301, 100)
+dialog_text = "Do you want to erase and start over?"
+script = ExtResource("6_2nakp")
+
+[connection signal="mouse_entered" from="CanvasLayer/ScreenPanel/ContentPanel" to="CanvasLayer/ScreenPanel/ContentPanel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ScreenPanel/ContentPanel" to="CanvasLayer/ScreenPanel/ContentPanel" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Undo" to="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid" method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Undo" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo" method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Undo" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Undo" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Redo" to="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid" method="_on_redo_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Redo" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo" method="_on_redo_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Redo" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/UndoRedo/Redo" method="_on_pressed"]
+[connection signal="color_changed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" method="_on_color_changed"]
+[connection signal="color_changed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" method="_on_color_picker_color_changed"]
+[connection signal="preset_added" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" method="_on_color_picker_preset_added"]
+[connection signal="mouse_entered" from="CanvasLayer/ContentFrostEffect" to="CanvasLayer/ContentFrostEffect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ContentFrostEffect" to="CanvasLayer/ContentFrostEffect" method="_on_mouse_exited"]
+[connection signal="confirmed" from="CanvasLayer/ResetConfirm" to="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid" method="_on_reset_confirm_confirmed"]

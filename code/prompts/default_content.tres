@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Content" load_steps=3 format=3 uid="uid://cdxbk8gebopqo"]
+
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="1_bg7no"]
+[ext_resource type="Texture2D" uid="uid://yw0p2y5s17vr" path="res://images/Closeup_of_pixels.JPG" id="1_gievd"]
+
+[resource]
+script = ExtResource("1_bg7no")
+headline_text = "THERE ARE 2,073,600 PIXELS ON THIS SCREEN"
+body_text = "Digital screens are made of tiny pixels arranged on a grid. Each one mixes red, green, and blue light."
+image = ExtResource("1_gievd")

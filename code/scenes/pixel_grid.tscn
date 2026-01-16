@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxvod76i405yo"]
+
+[ext_resource type="Script" uid="uid://cadxdelslv0se" path="res://scripts/pixel_grid.gd" id="1_7sjk7"]
+
+[node name="PixelGrid" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 78.0
+offset_right = -639.0
+offset_bottom = -121.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+script = ExtResource("1_7sjk7")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Content" load_steps=3 format=3 uid="uid://dhksbbsmxchxi"]
+
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="1_8j1x7"]
+[ext_resource type="Texture2D" uid="uid://d08txdhq1jy82" path="res://images/qr_code.png" id="1_ifcif"]
+
+[resource]
+script = ExtResource("1_8j1x7")
+headline_text = "LET US KNOW YOUR THOUGHTS ON THIS ACTIVITY"
+body_text = "We are still developing this activity and need your input! Please follow the QR code to answer a few questions."
+image = ExtResource("1_ifcif")

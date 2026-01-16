@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://tm4wvtxirrw5"]
+
+[ext_resource type="Script" uid="uid://dmxcal4h077qi" path="res://scripts/aspect_ratio_container.gd" id="1_00km2"]
+[ext_resource type="PackedScene" uid="uid://hda7ukedct01" path="res://scenes/color_swatch.tscn" id="2_mk32e"]
+[ext_resource type="Shader" uid="uid://bsb0fuvst0gae" path="res://shaders/color_swatch_mask.gdshader" id="3_y2syb"]
+[ext_resource type="Script" uid="uid://c1cmjls57db5t" path="res://scripts/swatch_mask.gd" id="4_3mpsf"]
+[ext_resource type="Script" uid="uid://bnwtic3628aa1" path="res://scripts/outline_mask.gd" id="4_tblsv"]
+
+[sub_resource type="Animation" id="Animation_57ysx"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../OutlineMask:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.35, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_1fxhi"]
+resource_name = "on_clicked"
+length = 0.75
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../OutlineMask:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.35, -0.25, 0, 0.25, 0, 0.15, -0.25, 0, 0.25, 0, 0.45, -0.25, 0, 0.25, 0, 0.35, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.733333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.733333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkiak"]
+_data = {
+&"RESET": SubResource("Animation_57ysx"),
+&"on_clicked": SubResource("Animation_1fxhi")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qsqy"]
+resource_local_to_scene = true
+shader = ExtResource("3_y2syb")
+shader_parameter/circle_size = 0.35
+shader_parameter/screen_width = 1.0
+shader_parameter/screen_height = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tquji"]
+resource_local_to_scene = true
+shader = ExtResource("3_y2syb")
+shader_parameter/circle_size = 0.4
+shader_parameter/screen_width = 1.0
+shader_parameter/screen_height = 1.0
+
+[node name="SwatchContainer" type="AspectRatioContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_00km2")
+
+[node name="MaskAnimator" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../SwatchMask")
+libraries = {
+"": SubResource("AnimationLibrary_dkiak")
+}
+
+[node name="Color" parent="." instance=ExtResource("2_mk32e")]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="OutlineMask" type="ColorRect" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_7qsqy")
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.823529, 0.823529, 0.823529, 1)
+script = ExtResource("4_tblsv")
+
+[node name="SwatchMask" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_tquji")
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("4_3mpsf")

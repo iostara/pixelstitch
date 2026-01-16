@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Content" load_steps=3 format=3 uid="uid://dp1i2q6ijkscb"]
+
+[ext_resource type="Texture2D" uid="uid://bwuiubwvnolou" path="res://images/GeorgesSeurat.jpg" id="1_v1ofl"]
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="2_5fojm"]
+
+[resource]
+script = ExtResource("2_5fojm")
+headline_text = "CAN YOU RECREATE THIS AS PIXEL ART?"
+body_text = "Georges Seurat: Parade de cirque"
+image = ExtResource("1_v1ofl")

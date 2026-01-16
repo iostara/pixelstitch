@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Content" load_steps=2 format=3 uid="uid://chsl7fpn7orxl"]
+
+[ext_resource type="Script" uid="uid://sdwdb8i0w1cw" path="res://scripts/content.gd" id="1_31ovr"]
+
+[resource]
+script = ExtResource("1_31ovr")
+headline_text = "CAN YOU RECREATE THIS IMAGE AS PIXEL ART?"
+body_text = ""

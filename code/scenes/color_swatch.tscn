@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://hda7ukedct01"]
+
+[ext_resource type="Script" uid="uid://dnq5nnwd1eihu" path="res://scripts/color_swatch.gd" id="1_kbqpg"]
+[ext_resource type="StyleBox" uid="uid://bwcpavnt0dk0o" path="res://themes/invisibox.tres" id="2_04my7"]
+[ext_resource type="AudioStream" uid="uid://mwvd0ttk3lb8" path="res://audio/select_006.ogg" id="2_g1u5h"]
+
+[node name="Color" type="ColorRect"]
+anchors_preset = -1
+anchor_right = 0.005
+anchor_bottom = 0.009
+offset_right = 0.4
+offset_bottom = 0.28
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_kbqpg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_g1u5h")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = ExtResource("2_04my7")
+theme_override_styles/hover = ExtResource("2_04my7")
+theme_override_styles/pressed = ExtResource("2_04my7")
+theme_override_styles/normal = ExtResource("2_04my7")
+action_mode = 0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
