@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c063ti8hg5mk3"]
+[gd_scene load_steps=34 format=3 uid="uid://c063ti8hg5mk3"]
 
 [ext_resource type="Script" uid="uid://h4dwmxhbay64" path="res://scripts/main_scene.gd" id="1_x6qfb"]
 [ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="2_7navx"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://c4ffxnqvwse2y" path="res://scripts/color_palette.gd" id="3_rhssy"]
 [ext_resource type="Script" uid="uid://bbuqdw78ye1py" path="res://scripts/reset_confirm.gd" id="6_2nakp"]
 [ext_resource type="PackedScene" uid="uid://tm4wvtxirrw5" path="res://scenes/swatch_container.tscn" id="6_sq6ad"]
-[ext_resource type="Shader" uid="uid://1p83ph6s7xhp" path="res://shaders/frosted_glass.gdshader" id="7_p7ow4"]
-[ext_resource type="Script" uid="uid://bvbdllypqlfwk" path="res://scripts/content_frost_effect.gd" id="8_n3fgv"]
 [ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="10_2ln5y"]
 [ext_resource type="Theme" uid="uid://by45e5y3feaxq" path="res://themes/generic_theme.tres" id="10_s82ok"]
 [ext_resource type="Texture2D" uid="uid://c87d5r7d05vm6" path="res://images/undo.svg" id="11_0d6ip"]
@@ -114,85 +112,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_mltnr"),
 &"push": SubResource("Animation_p18as")
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5wqk"]
-shader = ExtResource("7_p7ow4")
-shader_parameter/g_color = Color(1, 1, 1, 0)
-shader_parameter/g_blur = 0.0
-
-[sub_resource type="Theme" id="Theme_ion8s"]
-
-[sub_resource type="Animation" id="Animation_jtgii"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/g_blur")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:material")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_o5wqk")]
-}
-
-[sub_resource type="Animation" id="Animation_72e6e"]
-resource_name = "blur_in_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_o5wqk")]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_parameter/g_blur")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.1, 1)
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../ScreenPanel/TilesetPanel")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"refreshContent"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlgil"]
-_data = {
-&"RESET": SubResource("Animation_jtgii"),
-&"blur_in_out": SubResource("Animation_72e6e")
 }
 
 [node name="MainScene" type="Node"]
@@ -364,21 +283,6 @@ layout_mode = 2
 [node name="SwatchContainer7" parent="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" instance=ExtResource("6_sq6ad")]
 layout_mode = 2
 
-[node name="ContentFrostEffect" type="ColorRect" parent="CanvasLayer"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_o5wqk")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1500.0
-theme = SubResource("Theme_ion8s")
-script = ExtResource("8_n3fgv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ContentFrostEffect"]
-libraries = {
-&"": SubResource("AnimationLibrary_mlgil")
-}
-
 [node name="ResetConfirm" type="ConfirmationDialog" parent="CanvasLayer"]
 title = "RESET"
 initial_position = 2
@@ -397,6 +301,4 @@ script = ExtResource("6_2nakp")
 [connection signal="color_changed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" method="_on_color_changed"]
 [connection signal="color_changed" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" method="_on_color_picker_color_changed"]
 [connection signal="preset_added" from="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPicker" to="CanvasLayer/ScreenPanel/ControlPanel/VBoxContainer/ColorPalette" method="_on_color_picker_preset_added"]
-[connection signal="mouse_entered" from="CanvasLayer/ContentFrostEffect" to="CanvasLayer/ContentFrostEffect" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/ContentFrostEffect" to="CanvasLayer/ContentFrostEffect" method="_on_mouse_exited"]
 [connection signal="confirmed" from="CanvasLayer/ResetConfirm" to="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid" method="_on_reset_confirm_confirmed"]
