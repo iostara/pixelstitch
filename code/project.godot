@@ -25,6 +25,10 @@ window/size/viewport_height=1080
 window/size/resizable=false
 window/size/borderless=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
 [global_group]
 
 pixels=""
