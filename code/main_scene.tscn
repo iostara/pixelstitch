@@ -18,35 +18,25 @@ script = ExtResource("1_x6qfb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScreenPanel" type="Panel" parent="CanvasLayer"]
+[node name="ScreenPanel" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme = ExtResource("10_s82ok")
 
 [node name="TilesetPanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1500.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
 mouse_filter = 1
 theme = ExtResource("10_s82ok")
 script = ExtResource("3_7kosc")
 
 [node name="PixelGridPanel" type="AspectRatioContainer" parent="CanvasLayer/ScreenPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_s82ok")
 
@@ -67,6 +57,12 @@ unique_name_in_owner = true
 stream = ExtResource("10_2ln5y")
 script = ExtResource("11_20t6q")
 sound_bank = Array[AudioStreamOggVorbis]([ExtResource("13_v0dwe"), ExtResource("14_2rpx0"), ExtResource("10_2ln5y")])
+
+[node name="TilePanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
 
 [node name="ResetConfirm" type="ConfirmationDialog" parent="CanvasLayer"]
 title = "RESET"
