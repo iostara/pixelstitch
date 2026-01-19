@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://03uj4tl6r2j5"]
 
-[ext_resource type="FontFile" uid="uid://drsiytqr0bqw" path="res://fonts/GT-Pressura-Bold.ttf" id="1_gnt8p"]
+[ext_resource type="FontFile" uid="uid://cy8d28ohkswqn" path="res://fonts/GT-Pressura-Bold.ttf" id="1_gnt8p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spve1"]
 

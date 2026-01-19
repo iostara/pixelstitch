@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://by45e5y3feaxq"]
 
-[ext_resource type="FontFile" uid="uid://drsiytqr0bqw" path="res://fonts/GT-Pressura-Bold.ttf" id="1_fxphb"]
+[ext_resource type="FontFile" uid="uid://cy8d28ohkswqn" path="res://fonts/GT-Pressura-Bold.ttf" id="1_fxphb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvqh8"]
 content_margin_top = 50.0
