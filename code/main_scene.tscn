@@ -302,10 +302,11 @@ sound_bank = Array[AudioStreamOggVorbis]([ExtResource("13_v0dwe"), ExtResource("
 
 [node name="ControlPanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 1.0090001
 anchor_bottom = 1.0
 offset_left = 1606.0
+offset_right = -17.280151
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

@@ -14,7 +14,7 @@ func _ready() -> void:
 		swatch_node[n].setSwatch(input_color) 
 		recent_color.push_front(swatch_node[n].current_color)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		allow_new_color = true
 

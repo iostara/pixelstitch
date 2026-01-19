@@ -2,8 +2,8 @@ extends ColorPicker
 
 @onready var picker_sound : AudioStreamPlayer2D = %PickerSound
 
-func _on_color_changed(color):
-	Global.picked_color = color
+func _on_color_changed(_color):
+	Global.picked_color = _color
 	playPickerSound()
 func playPickerSound():
 	var colorAverage = color.r + color.g + color.b / 3

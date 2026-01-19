@@ -5,4 +5,4 @@ extends PanelContainer
 func refreshContent():
 	content_stack.refreshContent()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#TODO: replace the content panel with the tileset picker

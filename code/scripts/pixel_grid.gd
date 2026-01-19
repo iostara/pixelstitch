@@ -23,10 +23,10 @@ func spawn_pixels():
 		#print(str(spawnCount, " pixels spawned"))
 		pixel_count_actual = get_child_count()
 	
-func reset_grid(grid_size):
-	grid_size = grid_size
+func reset_grid(_grid_size):
+	_grid_size = _grid_size
 	spawn_pixels()
-	columns = grid_size
+	columns = _grid_size
 
 func _on_row_slider_value_changed(value):
 	reset_grid(value)
