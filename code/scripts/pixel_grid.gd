@@ -23,10 +23,10 @@ func spawn_pixels():
 		#print(str(spawnCount, " pixels spawned"))
 		pixel_count_actual = get_child_count()
 	
-func reset_grid(size):
-	grid_size = size
+func reset_grid(grid_size):
+	grid_size = grid_size
 	spawn_pixels()
-	columns = size
+	columns = grid_size
 
 func _on_row_slider_value_changed(value):
 	reset_grid(value)
@@ -50,8 +50,10 @@ func drawSound():
 	var sound_bank : Array[AudioStreamOggVorbis] = draw_sound.sound_bank
 	draw_sound.set_stream(sound_bank.pick_random())
 	var pitch = Global.pitch_from_color + randf_range(-0.1,0.1)
-	draw_sound.pitch_scale = pitch 
-	draw_sound.play()
+	print("pitch value: ",str(pitch))
+	#draw_sound.pitch_scale = pitch #FIXME pitch scale is getting set to a value less than zero
+	#draw_sound.play()
+	#HACK: disabled sound effects pending rewrite
 
 
 func _on_undo_pressed() -> void:

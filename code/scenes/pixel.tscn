@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcu35366nqr37"]
 
-[ext_resource type="Script" uid="uid://b8xfhc652m12l" path="res://scripts/Pixel.gd" id="1_1tw1y"]
-[ext_resource type="Shader" uid="uid://bsb0fuvst0gae" path="res://shaders/color_swatch_mask.gdshader" id="2_m847d"]
+[ext_resource type="Script" uid="uid://b24bhj5oflwvq" path="res://scripts/Pixel.gd" id="1_1tw1y"]
+[ext_resource type="Shader" uid="uid://s7a3seemvdai" path="res://shaders/color_swatch_mask.gdshader" id="2_m847d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inoxk"]
 resource_local_to_scene = true

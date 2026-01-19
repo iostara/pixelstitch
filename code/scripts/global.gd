@@ -1,3 +1,8 @@
+#BIG GOALS
+#TODO: replace current color system with an indexed color/tile system
+#TODO: rewrite all input-handling code for touch
+#TODO: create eraser feature
+
 extends Node
 
 var picked_color : Color = Color(0,0,0,1)

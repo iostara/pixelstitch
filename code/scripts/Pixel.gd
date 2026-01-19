@@ -16,16 +16,11 @@ var mouse_over : bool = false
 func _ready():
 	reset()
 
-func _process(delta):
-	#if Input.is_action_pressed("click") && mouse_over && Global.picked_color != get_color():
-	#	queueDraw()
-	pass
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		if event.position.x > global_position.x and event.position.x < global_position.x + size.x:
 			if event.position.y > global_position.y and event.position.y < global_position.y + size.y:
-				if Global.picked_color != get_color(): #FIX error when I click a pixel, "invalid access to property or key 'picked_color' 
+				if Global.picked_color != get_color(): 
 					queueDraw()
 
 func checkTouchPosition():

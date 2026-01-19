@@ -7,13 +7,8 @@ extends VBoxContainer
 @onready var body : RichTextLabel = %BodyContent
 @onready var image : TextureRect = %ImageContent
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	applyContent() #this is a test
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func applyContent():
 	headline.set_text(current_content.headline_text)

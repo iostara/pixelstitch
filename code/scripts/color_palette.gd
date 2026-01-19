@@ -15,7 +15,7 @@ func _ready() -> void:
 		recent_color.push_front(swatch_node[n].current_color)
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("click"): #FIX: rewrite for touch interface support
+	if Input.is_action_just_released("click"):
 		allow_new_color = true
 
 func _on_color_picker_color_changed(color: Color) -> void:
@@ -25,5 +25,3 @@ func _on_color_picker_color_changed(color: Color) -> void:
 		recent_color.resize(swatch_list_max)
 		for n in recent_color.size():
 			swatch_node[n].setSwatch(recent_color[n])
-
-#TODO: make the color picker animation allow color changes once it has finished its animation
