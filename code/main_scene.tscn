@@ -1,17 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c063ti8hg5mk3"]
+[gd_scene load_steps=9 format=3 uid="uid://c063ti8hg5mk3"]
 
 [ext_resource type="Script" uid="uid://h4dwmxhbay64" path="res://scripts/main_scene.gd" id="1_x6qfb"]
 [ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="2_7navx"]
 [ext_resource type="Script" uid="uid://d1iiotp8n8164" path="res://scripts/content_panel.gd" id="3_7kosc"]
 [ext_resource type="Script" uid="uid://bbuqdw78ye1py" path="res://scripts/reset_confirm.gd" id="6_2nakp"]
 [ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="10_2ln5y"]
-[ext_resource type="Theme" uid="uid://by45e5y3feaxq" path="res://themes/generic_theme.tres" id="10_s82ok"]
 [ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://draw_sound.gd" id="11_20t6q"]
 [ext_resource type="AudioStream" uid="uid://cianckmg1qa0p" path="res://audio/drop_002.ogg" id="13_v0dwe"]
 [ext_resource type="AudioStream" uid="uid://bclhfdyqmaxax" path="res://audio/drop_003.ogg" id="14_2rpx0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kkcm"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_x6qfb")
@@ -24,7 +20,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("10_s82ok")
 
 [node name="TilesetPanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
 unique_name_in_owner = true
@@ -32,19 +27,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
 mouse_filter = 1
-theme = ExtResource("10_s82ok")
 script = ExtResource("3_7kosc")
 
 [node name="PixelGridPanel" type="AspectRatioContainer" parent="CanvasLayer/ScreenPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("10_s82ok")
 
 [node name="GridBackground" type="PanelContainer" parent="CanvasLayer/ScreenPanel/PixelGridPanel"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_2kkcm")
 
 [node name="PixelGrid" type="GridContainer" parent="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground"]
 layout_mode = 2
