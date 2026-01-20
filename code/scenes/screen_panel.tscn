@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b62isux5v8q1h"]
+
+[ext_resource type="Script" uid="uid://d1iiotp8n8164" path="res://scripts/content_panel.gd" id="1_ju4vq"]
+[ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="2_nyuq0"]
+[ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="3_s776l"]
+[ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://draw_sound.gd" id="4_0bsfb"]
+[ext_resource type="AudioStream" uid="uid://cianckmg1qa0p" path="res://audio/drop_002.ogg" id="5_1nobc"]
+[ext_resource type="AudioStream" uid="uid://bclhfdyqmaxax" path="res://audio/drop_003.ogg" id="6_kr66w"]
+
+[node name="ScreenPanel" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TilesetPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+mouse_filter = 1
+script = ExtResource("1_ju4vq")
+
+[node name="PixelGridPanel" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridBackground" type="PanelContainer" parent="PixelGridPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PixelGrid" type="GridContainer" parent="PixelGridPanel/GridBackground"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_nyuq0")
+grid_size = 16
+
+[node name="DrawSound" type="AudioStreamPlayer2D" parent="PixelGridPanel/GridBackground/PixelGrid"]
+unique_name_in_owner = true
+stream = ExtResource("3_s776l")
+script = ExtResource("4_0bsfb")
+sound_bank = Array[AudioStreamOggVorbis]([ExtResource("5_1nobc"), ExtResource("6_kr66w"), ExtResource("3_s776l")])
+
+[node name="TilePanel" type="PanelContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+
+[connection signal="mouse_entered" from="TilesetPanel" to="TilesetPanel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TilesetPanel" to="TilesetPanel" method="_on_mouse_exited"]
