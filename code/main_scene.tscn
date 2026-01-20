@@ -1,68 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c063ti8hg5mk3"]
+[gd_scene load_steps=3 format=3 uid="uid://c063ti8hg5mk3"]
 
 [ext_resource type="Script" uid="uid://h4dwmxhbay64" path="res://scripts/main_scene.gd" id="1_x6qfb"]
-[ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="2_7navx"]
-[ext_resource type="Script" uid="uid://d1iiotp8n8164" path="res://scripts/content_panel.gd" id="3_7kosc"]
-[ext_resource type="Script" uid="uid://bbuqdw78ye1py" path="res://scripts/reset_confirm.gd" id="6_2nakp"]
-[ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="10_2ln5y"]
-[ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://draw_sound.gd" id="11_20t6q"]
-[ext_resource type="AudioStream" uid="uid://cianckmg1qa0p" path="res://audio/drop_002.ogg" id="13_v0dwe"]
-[ext_resource type="AudioStream" uid="uid://bclhfdyqmaxax" path="res://audio/drop_003.ogg" id="14_2rpx0"]
+[ext_resource type="PackedScene" uid="uid://b62isux5v8q1h" path="res://scenes/screen_panel.tscn" id="2_2c62f"]
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_x6qfb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScreenPanel" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TilesetPanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.35
-mouse_filter = 1
-script = ExtResource("3_7kosc")
-
-[node name="PixelGridPanel" type="AspectRatioContainer" parent="CanvasLayer/ScreenPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="GridBackground" type="PanelContainer" parent="CanvasLayer/ScreenPanel/PixelGridPanel"]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 1
-
-[node name="PixelGrid" type="GridContainer" parent="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_7navx")
-grid_size = 16
-
-[node name="DrawSound" type="AudioStreamPlayer2D" parent="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid"]
-unique_name_in_owner = true
-stream = ExtResource("10_2ln5y")
-script = ExtResource("11_20t6q")
-sound_bank = Array[AudioStreamOggVorbis]([ExtResource("13_v0dwe"), ExtResource("14_2rpx0"), ExtResource("10_2ln5y")])
-
-[node name="TilePanel" type="PanelContainer" parent="CanvasLayer/ScreenPanel"]
-layout_direction = 3
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.35
-
-[node name="ResetConfirm" type="ConfirmationDialog" parent="CanvasLayer"]
-title = "RESET"
-initial_position = 2
-size = Vector2i(301, 100)
-dialog_text = "Do you want to erase and start over?"
-script = ExtResource("6_2nakp")
-
-[connection signal="mouse_entered" from="CanvasLayer/ScreenPanel/TilesetPanel" to="CanvasLayer/ScreenPanel/TilesetPanel" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/ScreenPanel/TilesetPanel" to="CanvasLayer/ScreenPanel/TilesetPanel" method="_on_mouse_exited"]
-[connection signal="confirmed" from="CanvasLayer/ResetConfirm" to="CanvasLayer/ScreenPanel/PixelGridPanel/GridBackground/PixelGrid" method="_on_reset_confirm_confirmed"]
+[node name="ScreenPanel" parent="CanvasLayer" instance=ExtResource("2_2c62f")]
