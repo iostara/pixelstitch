@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://3s3i1ilg4efa"]
+
+[ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="1_w78g5"]
+[ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="2_5gusq"]
+[ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://draw_sound.gd" id="3_lsc3o"]
+[ext_resource type="AudioStream" uid="uid://cianckmg1qa0p" path="res://audio/drop_002.ogg" id="4_b6je5"]
+[ext_resource type="AudioStream" uid="uid://bclhfdyqmaxax" path="res://audio/drop_003.ogg" id="5_fm1id"]
+
+[node name="GridPanel" type="AspectRatioContainer"]
+size_flags_horizontal = 3
+
+[node name="GridBackground" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PixelGrid" type="GridContainer" parent="GridBackground"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_w78g5")
+grid_size = 16
+
+[node name="DrawSound" type="AudioStreamPlayer2D" parent="GridBackground/PixelGrid"]
+unique_name_in_owner = true
+stream = ExtResource("2_5gusq")
+script = ExtResource("3_lsc3o")
+sound_bank = Array[AudioStreamOggVorbis]([ExtResource("4_b6je5"), ExtResource("5_fm1id"), ExtResource("2_5gusq")])
