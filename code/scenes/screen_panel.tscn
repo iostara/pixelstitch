@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b62isux5v8q1h"]
+[gd_scene load_steps=3 format=3 uid="uid://b62isux5v8q1h"]
 
 [ext_resource type="Script" uid="uid://d1iiotp8n8164" path="res://scripts/content_panel.gd" id="1_ju4vq"]
-[ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="2_nyuq0"]
-[ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="3_s776l"]
-[ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://draw_sound.gd" id="4_0bsfb"]
-[ext_resource type="AudioStream" uid="uid://cianckmg1qa0p" path="res://audio/drop_002.ogg" id="5_1nobc"]
-[ext_resource type="AudioStream" uid="uid://bclhfdyqmaxax" path="res://audio/drop_003.ogg" id="6_kr66w"]
+[ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
 
 [node name="ScreenPanel" type="HBoxContainer"]
 anchors_preset = 15
