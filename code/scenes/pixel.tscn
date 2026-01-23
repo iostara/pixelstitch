@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcu35366nqr37"]
+[gd_scene load_steps=8 format=3 uid="uid://bcu35366nqr37"]
 
 [ext_resource type="Script" uid="uid://b24bhj5oflwvq" path="res://scripts/Pixel.gd" id="1_1tw1y"]
+[ext_resource type="Texture2D" uid="uid://cko1y3g6uswlx" path="res://images/icon.svg" id="1_jcv3l"]
 [ext_resource type="Shader" uid="uid://s7a3seemvdai" path="res://shaders/color_swatch_mask.gdshader" id="2_m847d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inoxk"]
@@ -45,10 +46,10 @@ _data = {
 &"on_click": SubResource("Animation_kdhx0")
 }
 
-[node name="Pixel" type="ColorRect" groups=["pixels"]]
+[node name="Pixel" type="TextureRect" groups=["pixels"]]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 1
+texture = ExtResource("1_jcv3l")
 script = ExtResource("1_1tw1y")
 
 [node name="PixelMask" type="ColorRect" parent="."]
