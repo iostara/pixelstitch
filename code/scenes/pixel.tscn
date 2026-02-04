@@ -1,71 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcu35366nqr37"]
+[gd_scene format=3 uid="uid://bcu35366nqr37"]
 
+[ext_resource type="Texture2D" uid="uid://dail8sercptr6" path="res://images/map_tile_sheet.png" id="1_0sjnw"]
 [ext_resource type="Script" uid="uid://b24bhj5oflwvq" path="res://scripts/Pixel.gd" id="1_1tw1y"]
-[ext_resource type="Texture2D" uid="uid://cko1y3g6uswlx" path="res://images/icon.svg" id="1_jcv3l"]
-[ext_resource type="Shader" uid="uid://s7a3seemvdai" path="res://shaders/color_swatch_mask.gdshader" id="2_m847d"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_inoxk"]
-resource_local_to_scene = true
-shader = ExtResource("2_m847d")
-shader_parameter/circle_size = 0.5
-shader_parameter/screen_width = 1.0
-shader_parameter/screen_height = 1.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4py3"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="Animation" id="Animation_gwcul"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PixelMask:material:shader_parameter/circle_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ej3v"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="Animation" id="Animation_kdhx0"]
-resource_name = "on_click"
-length = 0.2
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PixelMask:material:shader_parameter/circle_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2)
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg5qx"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xav1"]
-_data = {
-&"RESET": SubResource("Animation_gwcul"),
-&"on_click": SubResource("Animation_kdhx0")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2cbp"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(96, 0, 32, 32)
 
-[node name="Pixel" type="TextureRect" groups=["pixels"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxnmp"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu06j"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqgwr"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1kpk"]
+atlas = ExtResource("1_0sjnw")
+region = Rect2(224, 0, 32, 32)
+
+[node name="Pixel" type="TextureRect" unique_id=457413844 groups=["pixels"]]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_jcv3l")
+expand_mode = 3
 script = ExtResource("1_1tw1y")
-
-[node name="PixelMask" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_inoxk")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MaskAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_1xav1")
-}
+current_tile_array = Array[Texture2D]([SubResource("AtlasTexture_e4py3"), SubResource("AtlasTexture_5ej3v"), SubResource("AtlasTexture_cg5qx"), SubResource("AtlasTexture_r2cbp"), SubResource("AtlasTexture_vxnmp"), SubResource("AtlasTexture_xu06j"), SubResource("AtlasTexture_rqgwr"), SubResource("AtlasTexture_x1kpk")])
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

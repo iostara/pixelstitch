@@ -1,0 +1,39 @@
+[gd_scene format=4 uid="uid://cgj4t4a7w2wo4"]
+
+[ext_resource type="Shader" uid="uid://cgabp4s2go8s7" path="res://resources/tile_test.tres" id="1_qgetp"]
+[ext_resource type="Texture2D" uid="uid://dail8sercptr6" path="res://images/map_tile_sheet.png" id="1_y57rc"]
+[ext_resource type="SpriteFrames" uid="uid://c3bg0dx8tr5gd" path="res://resources/map_tiles_sprite_frame.tres" id="2_qgetp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6jic"]
+shader = ExtResource("1_qgetp")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6jic"]
+texture = ExtResource("1_y57rc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qdkxk"]
+tile_size = Vector2i(32, 32)
+sources/3 = SubResource("TileSetAtlasSource_p6jic")
+
+[node name="TileTest" type="Node2D" unique_id=128009080]
+
+[node name="BigTile" type="AnimatedSprite2D" parent="." unique_id=541153890]
+texture_filter = 1
+material = SubResource("ShaderMaterial_p6jic")
+position = Vector2(1611, 364.00006)
+scale = Vector2(14.937501, 14.937501)
+sprite_frames = ExtResource("2_qgetp")
+frame = 7
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=684421034]
+texture_filter = 3
+tile_map_data = PackedByteArray("AAACAAMAAwAHAAAAAAACAAIAAwABAAAAAAACAAEAAwADAAAAAAACAAQAAwAEAAAAAAADAAQAAwADAAAAAAADAAMAAwAGAAAAAAADAAIAAwABAAAAAAABAAMAAwAEAAAAAAABAAEAAwAFAAAAAAABAAIAAwABAAAAAAADAAUAAwAEAAAAAAADAAEAAwAFAAAAAAAEAAUAAwADAAAAAAAEAAEAAwACAAAAAAAFAAEAAwAHAAAAAAAFAAIAAwABAAAAAAAFAAMAAwAGAAAAAAAEAAMAAwAFAAAAAAAEAAQAAwAEAAAAAAAFAAQAAwADAAAAAAAFAAUAAwABAAAAAAAFAAYAAwAGAAAAAAAEAAYAAwAEAAAAAAAEAAIAAwAAAAAAAAADAAYAAwAAAAAAAAACAAYAAwAAAAAAAAACAAUAAwAAAAAAAAABAAUAAwAAAAAAAAABAAYAAwAAAAAAAAABAAQAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAGAAMAAwAAAAAAAAAGAAQAAwAAAAAAAAAGAAUAAwAAAAAAAAAGAAYAAwAAAAAAAAAHAAYAAwAAAAAAAAAHAAUAAwAAAAAAAAAHAAQAAwAAAAAAAAAHAAMAAwAAAAAAAAAHAAIAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAFAAAAAwAAAAAAAAAEAAAAAwAAAAAAAAADAAAAAwAAAAAAAAACAAAAAwAAAAAAAAABAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAAQAAwAAAAAAAAAAAAUAAwAAAAAAAAAAAAYAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_qdkxk")

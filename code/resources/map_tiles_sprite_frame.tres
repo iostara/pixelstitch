@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c3bg0dx8tr5gd"]
+
+[ext_resource type="Texture2D" uid="uid://dail8sercptr6" path="res://images/map_tile_sheet.png" id="1_35m5c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y57rc"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgetp"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6jic"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdkxk"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8qe0"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnknc"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06164"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pref"]
+atlas = ExtResource("1_35m5c")
+region = Rect2(224, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y57rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgetp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6jic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdkxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8qe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnknc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06164")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pref")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

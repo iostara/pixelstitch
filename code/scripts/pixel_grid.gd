@@ -15,14 +15,14 @@ func spawn_pixels():
 	print(str("gridsize*gridsize = ",grid_size*grid_size))
 	while get_child_count() > (grid_size * grid_size):
 		remove_child(get_child(0))
-	
-	while pixel_count_actual < (257):
+
+	while pixel_count_actual < (grid_size*grid_size+1):
 		var pixel_instance = pixel_scene.instantiate()
 		add_child(pixel_instance)
 		#spawnCount = spawnCount + 1
 		#print(str(spawnCount, " pixels spawned"))
 		pixel_count_actual = get_child_count()
-	
+
 func reset_grid(_grid_size):
 	_grid_size = _grid_size
 	spawn_pixels()
@@ -37,14 +37,14 @@ func reset_pixels():
 func _on_reset_confirm_confirmed():
 	reset_pixels()
 
-func drawToPixel(target):##target should be the self-reported name of whichever pixel node calls this function
-	#grid_background.activateGrid()
-	var current_color = target.color
-	undo_redo.create_action("Draw")
-	undo_redo.add_do_property(target,"color",Global.picked_color)
-	undo_redo.add_undo_property(target,"color",current_color)
-	undo_redo.commit_action()
-	drawSound()
+#func drawToPixel(target):##target should be the self-reported name of whichever pixel node calls this function
+#	#grid_background.activateGrid()
+#	var current_color = target.color
+#	undo_redo.create_action("Draw")
+#	undo_redo.add_do_property(target,"color",Global.picked_color)
+#	undo_redo.add_undo_property(target,"color",current_color)
+#	undo_redo.commit_action()
+#	drawSound()
 
 func drawSound():
 	var sound_bank : Array[AudioStreamOggVorbis] = draw_sound.sound_bank
@@ -55,14 +55,11 @@ func drawSound():
 	#draw_sound.play()
 	#HACK: disabled sound effects pending rewrite
 
-
 func _on_undo_pressed() -> void:
 	undo_redo.undo()
 
 func _on_redo_pressed() -> void:
 	undo_redo.redo()
-
-
 
 func _on_reset_button_pressed() -> void:
 	pass
