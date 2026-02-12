@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TileSwatch" format=3 uid="uid://q5ep85d7qk2a"]
 
-[ext_resource type="Script" uid="uid://fu8vofl64dqq" path="res://resources/tile_swatch.gd" id="1_taov1"]
+[ext_resource type="Script" uid="uid://fu8vofl64dqq" path="res://resources/tile_palette.gd" id="1_taov1"]
 [ext_resource type="Texture2D" uid="uid://dail8sercptr6" path="res://images/map_tile_sheet.png" id="2_kr5w6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2ur0"]
