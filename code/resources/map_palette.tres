@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TileSwatch" format=3 uid="uid://q5ep85d7qk2a"]
+[gd_resource type="Resource" script_class="TilePalette" format=3 uid="uid://q5ep85d7qk2a"]
 
 [ext_resource type="Script" uid="uid://fu8vofl64dqq" path="res://resources/tile_palette.gd" id="1_taov1"]
 [ext_resource type="Texture2D" uid="uid://dail8sercptr6" path="res://images/map_tile_sheet.png" id="2_kr5w6"]
@@ -36,6 +36,7 @@ atlas = ExtResource("2_kr5w6")
 region = Rect2(224, 0, 32, 32)
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_taov1")
 texture_payload = Array[Texture2D]([SubResource("AtlasTexture_e2ur0"), SubResource("AtlasTexture_0b6qy"), SubResource("AtlasTexture_511om"), SubResource("AtlasTexture_yr5qi"), SubResource("AtlasTexture_6wnnx"), SubResource("AtlasTexture_olsvk"), SubResource("AtlasTexture_45nsk"), SubResource("AtlasTexture_xsk0o")])
 metadata/_custom_type_script = "uid://fu8vofl64dqq"
