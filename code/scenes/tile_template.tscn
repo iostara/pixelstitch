@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bcu35366nqr37"]
+
+[ext_resource type="Script" uid="uid://cqkwkm04k6bv6" path="res://scripts/tile.gd" id="1_xmll8"]
+[ext_resource type="Resource" uid="uid://q5ep85d7qk2a" path="res://resources/pixel_map.tres" id="2_frkg8"]
+
+[node name="Tile" type="TextureRect" unique_id=457413844 groups=["pixels"]]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 3
+script = ExtResource("1_xmll8")
+tileswatch_library = Array[Resource]([ExtResource("2_frkg8")])
