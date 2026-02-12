@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv300qj5y6lw0"
-path="res://.godot/imported/GeorgesSeurat.jpg-1528ef5870a487bdf1783b85b593a7d3.ctex"
+uid="uid://bhnpgduo30df4"
+path="res://.godot/imported/ClaudeMonet.jpg-54e92bb53fd38ae055c5d5344cf05de7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/GeorgesSeurat.jpg"
-dest_files=["res://.godot/imported/GeorgesSeurat.jpg-1528ef5870a487bdf1783b85b593a7d3.ctex"]
+source_file="res://archive/ClaudeMonet.jpg"
+dest_files=["res://.godot/imported/ClaudeMonet.jpg-54e92bb53fd38ae055c5d5344cf05de7.ctex"]
 
 [params]
 

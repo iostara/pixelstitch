@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv4hjt4ish7pg"
-path="res://.godot/imported/qr_code.png-6e2f7fa997e4cfde5aa25ea7aa87f537.ctex"
+uid="uid://p0wvanies52f"
+path="res://.godot/imported/HenriEdmondCross.jpg-23fff2e8f740fc04774183fd6d37e456.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/qr_code.png"
-dest_files=["res://.godot/imported/qr_code.png-6e2f7fa997e4cfde5aa25ea7aa87f537.ctex"]
+source_file="res://archive/HenriEdmondCross.jpg"
+dest_files=["res://.godot/imported/HenriEdmondCross.jpg-23fff2e8f740fc04774183fd6d37e456.ctex"]
 
 [params]
 
