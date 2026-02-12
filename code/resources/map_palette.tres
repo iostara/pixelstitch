@@ -36,7 +36,6 @@ atlas = ExtResource("2_kr5w6")
 region = Rect2(224, 0, 32, 32)
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_taov1")
 texture_payload = Array[Texture2D]([SubResource("AtlasTexture_e2ur0"), SubResource("AtlasTexture_0b6qy"), SubResource("AtlasTexture_511om"), SubResource("AtlasTexture_yr5qi"), SubResource("AtlasTexture_6wnnx"), SubResource("AtlasTexture_olsvk"), SubResource("AtlasTexture_45nsk"), SubResource("AtlasTexture_xsk0o")])
 metadata/_custom_type_script = "uid://fu8vofl64dqq"

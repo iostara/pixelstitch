@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://bcu35366nqr37"]
 
+[ext_resource type="Texture2D" uid="uid://cko1y3g6uswlx" path="res://archive/icon.svg" id="1_jy3bm"]
 [ext_resource type="Script" uid="uid://cqkwkm04k6bv6" path="res://scripts/tile.gd" id="1_xmll8"]
+[ext_resource type="Resource" uid="uid://q5ep85d7qk2a" path="res://resources/map_palette.tres" id="2_frkg8"]
 
 [node name="Tile" type="TextureRect" unique_id=457413844 groups=["pixels"]]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource("1_jy3bm")
 expand_mode = 3
 script = ExtResource("1_xmll8")
+palette_library = Array[Resource]([ExtResource("2_frkg8")])
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
