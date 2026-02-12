@@ -11,5 +11,3 @@ texture = ExtResource("1_jy3bm")
 expand_mode = 3
 script = ExtResource("1_xmll8")
 palette_library = Array[Resource]([ExtResource("2_frkg8")])
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,6 +1,6 @@
 extends TextureRect
 
-@export var tile_index : int = randi_range(0,7)##this determines which tile of the given tile_palette. user input and currently selected tile swatch change its value.
+@export var tile_index : int##this determines which tile of the given tile_palette. user input and currently selected tile swatch change its value.
 
 @export var palette_index : int ##this determines which palette is used.
 
@@ -8,7 +8,7 @@ extends TextureRect
 
 
 func _init() -> void:
-
+	tile_index = randi_range(0,7)
 	pass
 
 func draw_tile():
