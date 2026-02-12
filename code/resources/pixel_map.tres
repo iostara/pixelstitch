@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="TileSwatch" format=3 uid="uid://q5ep85d7qk2a"]
+
+[ext_resource type="Script" uid="uid://fu8vofl64dqq" path="res://resources/tile_swatch.gd" id="1_taov1"]
+[ext_resource type="Texture2D" uid="uid://dail8sercptr6" path="res://images/map_tile_sheet.png" id="2_kr5w6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2ur0"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b6qy"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_511om"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr5qi"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wnnx"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olsvk"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45nsk"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsk0o"]
+atlas = ExtResource("2_kr5w6")
+region = Rect2(224, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_taov1")
+texture_payload = Array[Texture2D]([SubResource("AtlasTexture_e2ur0"), SubResource("AtlasTexture_0b6qy"), SubResource("AtlasTexture_511om"), SubResource("AtlasTexture_yr5qi"), SubResource("AtlasTexture_6wnnx"), SubResource("AtlasTexture_olsvk"), SubResource("AtlasTexture_45nsk"), SubResource("AtlasTexture_xsk0o")])
+metadata/_custom_type_script = "uid://fu8vofl64dqq"
