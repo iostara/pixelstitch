@@ -1,7 +1,6 @@
 #BIG GOALS
-#TODO: replace current color system with an indexed color/tile system
-#TODO: rewrite all input-handling code for touch
 #TODO: create eraser feature
+
 
 extends Node
 
@@ -11,3 +10,4 @@ var primary_color : Color
 var secondary_color : Color
 var tertiary_color : Color
 var pitch_from_color : float
+var selected_tile_index : int = randi_range(0,7)
