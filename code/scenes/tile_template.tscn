@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcu35366nqr37"]
 
-[ext_resource type="Texture2D" uid="uid://cko1y3g6uswlx" path="res://archive/icon.svg" id="1_jy3bm"]
+[ext_resource type="Texture2D" uid="uid://cko1y3g6uswlx" path="res://images/icon.svg" id="1_jy3bm"]
 [ext_resource type="Script" uid="uid://cqkwkm04k6bv6" path="res://scripts/tile.gd" id="1_xmll8"]
 [ext_resource type="Resource" uid="uid://q5ep85d7qk2a" path="res://resources/map_palette.tres" id="2_frkg8"]
 
@@ -9,6 +9,7 @@ custom_minimum_size = Vector2(16, 16)
 anchors_preset = -1
 anchor_right = 0.008
 anchor_bottom = 0.015000001
+offset_left = -0.3199997
 offset_right = 0.6399994
 offset_bottom = -0.20000076
 grow_horizontal = 2

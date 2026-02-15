@@ -8,7 +8,6 @@ func _ready() -> void:
 func spawn_tile():
 	var tile_instance = tile_scene.instantiate()
 	add_child(tile_instance)
-	pass
 
 func spawn_until_full():
 	while get_child_count() < 256:

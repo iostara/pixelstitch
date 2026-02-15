@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TilePalette" format=3 uid="uid://b2er3rl14jmbv"]
+
+[ext_resource type="Script" uid="uid://fu8vofl64dqq" path="res://resources/tile_palette.gd" id="1_vvels"]
+
+[resource]
+script = ExtResource("1_vvels")
+metadata/_custom_type_script = "uid://fu8vofl64dqq"
