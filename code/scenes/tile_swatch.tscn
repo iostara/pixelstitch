@@ -2,25 +2,45 @@
 
 [ext_resource type="Script" uid="uid://ds3pal5cs1xlt" path="res://scenes/tile_swatch.gd" id="1_4m81n"]
 [ext_resource type="Script" uid="uid://c4naoqko7di5q" path="res://scenes/swatch_grid.gd" id="1_diy5i"]
+[ext_resource type="Script" uid="uid://dkefyk6cdshv1" path="res://scenes/swatch_viewport.gd" id="2_ug8tt"]
 [ext_resource type="Script" uid="uid://dvf8pjnga5r5a" path="res://addons/multi_touchscreenbutton/script.gd" id="3_4m81n"]
+[ext_resource type="Script" uid="uid://chfb6ps4t2xtr" path="res://scenes/swatch_texture.gd" id="4_7a0bu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4m81n"]
+viewport_path = NodePath("SwatchViewport")
 
 [node name="TileSwatch" type="AspectRatioContainer" unique_id=350569231]
 editor_description = "The frame's job here is mostly to hold the aspect ratio of the swatch."
 custom_minimum_size = Vector2(16, 16)
+offset_right = 165.0
+offset_bottom = 165.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4m81n")
 
-[node name="SwatchGrid" type="GridContainer" parent="." unique_id=721125291]
+[node name="SwatchViewport" type="SubViewport" parent="." unique_id=1879485456]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(165, 165)
+render_target_update_mode = 4
+script = ExtResource("2_ug8tt")
+
+[node name="SwatchGrid" type="GridContainer" parent="SwatchViewport" unique_id=721125291]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
+offset_right = 165.0
+offset_bottom = 165.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
 columns = 16
 script = ExtResource("1_diy5i")
+
+[node name="SwatchTexture" type="TextureRect" parent="." unique_id=1536719344]
+layout_mode = 2
+texture = SubResource("ViewportTexture_4m81n")
+script = ExtResource("4_7a0bu")
 
 [node name="MultiTouchScreenButton" type="TextureButton" parent="." unique_id=669754705]
 layout_mode = 2
@@ -30,3 +50,4 @@ metadata/_custom_type_script = "uid://dvf8pjnga5r5a"
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="MultiTouchScreenButton" to="." method="_on_multi_touch_screen_button_pressed"]
+[connection signal="pressed" from="MultiTouchScreenButton" to="SwatchTexture" method="_on_multi_touch_screen_button_pressed"]

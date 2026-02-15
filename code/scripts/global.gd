@@ -7,3 +7,5 @@ var secondary_color : Color
 var tertiary_color : Color
 var pitch_from_color : float
 var selected_tile_index : int = randi_range(0,7)
+
+var index_texture : Texture2D

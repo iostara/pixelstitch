@@ -10,7 +10,7 @@ func _gui_input(event):
 	var event_pos_adjusted: Vector2 = event.position + global_position
 	var inside: bool = event_pos_adjusted.x > position.x and event_pos_adjusted.y > position.y and event_pos_adjusted.x < position.x + size.x and event_pos_adjusted.y < position.y + size.y
 	
-	if event is InputEventScreenTouch and event.pressed and inside:
+	if event is InputEventScreenTouch and event.pressed and inside: 
 		if toggle_mode:
 			toggled.emit()
 			button_pressed = true
