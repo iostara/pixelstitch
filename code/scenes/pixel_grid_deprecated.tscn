@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="1_7mksv"]
 [ext_resource type="AudioStream" uid="uid://igf1530t11p6" path="res://audio/drop_004.ogg" id="2_47vkp"]
-[ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://draw_sound.gd" id="3_b61ij"]
+[ext_resource type="Script" uid="uid://cci4k4lfgcrkq" path="res://archive/draw_sound.gd" id="3_b61ij"]
 [ext_resource type="AudioStream" uid="uid://cianckmg1qa0p" path="res://audio/drop_002.ogg" id="4_aftqe"]
 [ext_resource type="AudioStream" uid="uid://bclhfdyqmaxax" path="res://audio/drop_003.ogg" id="5_pc0tw"]
 

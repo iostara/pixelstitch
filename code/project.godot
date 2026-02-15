@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 Global="*res://scripts/global.gd"
+Screen="*uid://67ahy544jxgr"
 
 [display]
 
@@ -31,7 +32,7 @@ window/size/borderless=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/multi_touchscreenbutton/plugin.cfg", "res://addons/screen_print/plugin.cfg")
 
 [global_group]
 

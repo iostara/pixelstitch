@@ -18,11 +18,9 @@ func deactivateGrid():
 		active = false
 
 func fadeIn():
-	#HACK: animation_player.play("fade_in")
 	pass
 	
 func fadeOut():
-	#HACK: animation_player.play("fade_out")
 	pass
 	
 func _on_grid_time_out_timeout() -> void:

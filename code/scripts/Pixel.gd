@@ -1,6 +1,5 @@
 extends TextureRect
 
-#TODO: make every pixel spawn a label on itself with its number in the sequence
 
 
 var undo_redo = UndoRedo.new() ## I think this initializes the undo function?

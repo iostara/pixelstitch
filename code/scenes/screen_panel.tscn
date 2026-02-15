@@ -1,31 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://b62isux5v8q1h"]
+[gd_scene format=3 uid="uid://b62isux5v8q1h"]
 
-[ext_resource type="Script" uid="uid://d1iiotp8n8164" path="res://scripts/content_panel.gd" id="1_ju4vq"]
+[ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scenes/library_panel.gd" id="1_ihaxc"]
 [ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
+[ext_resource type="Script" uid="uid://buq5qd4v664q5" path="res://scenes/palette_panel.gd" id="3_g7g41"]
+[ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scenes/tile_palette_grid.gd" id="4_ju4vq"]
 
-[node name="ScreenPanel" type="HBoxContainer"]
+[node name="ScreenPanel" type="HBoxContainer" unique_id=701167274]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TilesetPanel" type="PanelContainer" parent="."]
+[node name="LibraryPanel" type="PanelContainer" parent="." unique_id=277430620]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
 mouse_filter = 1
-script = ExtResource("1_ju4vq")
+script = ExtResource("1_ihaxc")
 
-[node name="GridPanel" parent="." instance=ExtResource("2_4k5a0")]
+[node name="GridPanel" parent="." unique_id=1677062162 instance=ExtResource("2_4k5a0")]
 layout_mode = 2
 
-[node name="TilePanel" type="PanelContainer" parent="."]
+[node name="PalettePanel" type="PanelContainer" parent="." unique_id=1629028858]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
+script = ExtResource("3_g7g41")
 
-[connection signal="mouse_entered" from="TilesetPanel" to="TilesetPanel" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TilesetPanel" to="TilesetPanel" method="_on_mouse_exited"]
+[node name="TilePaletteGrid" type="GridContainer" parent="PalettePanel" unique_id=1738070912]
+layout_mode = 2
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+columns = 2
+script = ExtResource("4_ju4vq")

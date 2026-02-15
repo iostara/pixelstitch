@@ -1,7 +1,3 @@
-#BIG GOALS
-#TODO: create eraser feature
-
-
 extends Node
 
 var picked_color : Color = Color(0,0,0,1)

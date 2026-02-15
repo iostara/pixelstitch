@@ -9,6 +9,7 @@ custom_minimum_size = Vector2(16, 16)
 anchors_preset = -1
 anchor_right = 0.008
 anchor_bottom = 0.015000001
+offset_left = -0.3199997
 offset_right = 0.6399994
 offset_bottom = -0.20000076
 grow_horizontal = 2

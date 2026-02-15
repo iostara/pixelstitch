@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c063ti8hg5mk3"]
+
+[ext_resource type="Script" uid="uid://h4dwmxhbay64" path="res://scripts/main_scene.gd" id="1_x6qfb"]
+[ext_resource type="PackedScene" uid="uid://b62isux5v8q1h" path="res://scenes/screen_panel.tscn" id="2_2c62f"]
+
+[node name="MainScene" type="Node" unique_id=930891614]
+script = ExtResource("1_x6qfb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1128147757]
+
+[node name="ScreenPanel" parent="CanvasLayer" unique_id=735552362 instance=ExtResource("2_2c62f")]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://buvf0oy47adb3"]
+
+[ext_resource type="Script" uid="uid://bekvckvn2d2ob" path="res://scenes/swatch_dot.gd" id="1_1wis5"]
+
+[node name="SwatchDot" type="ColorRect" unique_id=9719549]
+editor_description = "256 swatch dots compose one tile swatch. They all inherit their color from their parent swatch."
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_1wis5")
