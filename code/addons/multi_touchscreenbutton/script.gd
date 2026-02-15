@@ -26,4 +26,3 @@ func _gui_input(event):
 		button_pressed = false
 		texture_normal = _texture_normal
 		if action: Input.action_release(action)
-
