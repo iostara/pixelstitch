@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scenes/library_panel.gd" id="1_ihaxc"]
 [ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
+[ext_resource type="Script" uid="uid://ckbf2hmfpdo3b" path="res://scenes/mode_toggle_button.gd" id="2_g7g41"]
 [ext_resource type="Script" uid="uid://buq5qd4v664q5" path="res://scenes/palette_panel.gd" id="3_g7g41"]
 [ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scenes/tile_palette_grid.gd" id="4_ju4vq"]
 
@@ -20,6 +21,14 @@ size_flags_stretch_ratio = 0.35
 mouse_filter = 1
 script = ExtResource("1_ihaxc")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="LibraryPanel" unique_id=491637832]
+layout_mode = 2
+
+[node name="ModeToggleButton" type="Button" parent="LibraryPanel/VBoxContainer" unique_id=1602745972]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_g7g41")
+
 [node name="GridPanel" parent="." unique_id=1677062162 instance=ExtResource("2_4k5a0")]
 layout_mode = 2
 
@@ -36,3 +45,5 @@ theme_override_constants/h_separation = 64
 theme_override_constants/v_separation = 64
 columns = 2
 script = ExtResource("4_ju4vq")
+
+[connection signal="pressed" from="LibraryPanel/VBoxContainer/ModeToggleButton" to="LibraryPanel/VBoxContainer/ModeToggleButton" method="_on_pressed"]

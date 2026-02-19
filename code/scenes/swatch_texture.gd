@@ -17,4 +17,4 @@ func _on_multi_touch_screen_button_pressed() -> void:
 
 func capture_texture():
 	Screen.print("send to global index_texture")
-	Global.index_texture = get_texture()
+	return get_texture()

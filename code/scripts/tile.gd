@@ -1,8 +1,10 @@
 extends TextureRect
 
+#TODO: when the tile index changes, this tile needs to change its texture. when the texture for its state changes. 
+
 @export var tile_index : int##this determines which tile of the given tile_palette. user input and currently selected tile swatch change its value.
 @export var palette_index : int ##this determines which palette is used.
-@export var palette_library : Array[Resource] ##all of the tilesets in the for of their own arrays, each with its own index
+@export var palette_library : Array[Resource] ##all of the tilesets in the form of their own arrays, each with its own index
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
