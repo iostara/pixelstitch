@@ -1,3 +1,5 @@
+@tool
+
 extends GridContainer
 
 var tile_scene = load("res://scenes/tile_template.tscn")

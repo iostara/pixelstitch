@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://tm4wvtxirrw5"]
+[gd_scene format=3 uid="uid://tm4wvtxirrw5"]
 
-[ext_resource type="Script" uid="uid://dmxcal4h077qi" path="res://scripts/aspect_ratio_container.gd" id="1_00km2"]
-[ext_resource type="PackedScene" uid="uid://hda7ukedct01" path="res://scenes/color_swatch.tscn" id="2_mk32e"]
-[ext_resource type="Shader" uid="uid://bsb0fuvst0gae" path="res://shaders/color_swatch_mask.gdshader" id="3_y2syb"]
-[ext_resource type="Script" uid="uid://c1cmjls57db5t" path="res://scripts/swatch_mask.gd" id="4_3mpsf"]
-[ext_resource type="Script" uid="uid://bnwtic3628aa1" path="res://scripts/outline_mask.gd" id="4_tblsv"]
+[ext_resource type="Script" uid="uid://c21ywjqym412i" path="res://scripts/aspect_ratio_container.gd" id="1_00km2"]
+[ext_resource type="PackedScene" uid="uid://hda7ukedct01" path="res://archive/color_swatch.tscn" id="2_mk32e"]
+[ext_resource type="Shader" path="res://shaders/color_swatch_mask.gdshader" id="3_y2syb"]
+[ext_resource type="Script" uid="uid://df1xwmx4qnlmc" path="res://scripts/swatch_mask.gd" id="4_3mpsf"]
+[ext_resource type="Script" uid="uid://31xcd3a52toq" path="res://scripts/outline_mask.gd" id="4_tblsv"]
 
 [sub_resource type="Animation" id="Animation_57ysx"]
 length = 0.001

@@ -2,9 +2,32 @@
 
 [ext_resource type="Script" uid="uid://ds3pal5cs1xlt" path="res://scenes/tile_swatch.gd" id="1_4m81n"]
 [ext_resource type="Script" uid="uid://c4naoqko7di5q" path="res://scenes/swatch_grid.gd" id="1_diy5i"]
+[ext_resource type="Shader" uid="uid://c8lrx3xlvtm67" path="res://scenes/tile_swatch.gdshader" id="1_gch5q"]
 [ext_resource type="Script" uid="uid://dkefyk6cdshv1" path="res://scenes/swatch_viewport.gd" id="2_ug8tt"]
 [ext_resource type="Script" uid="uid://dvf8pjnga5r5a" path="res://addons/multi_touchscreenbutton/script.gd" id="3_4m81n"]
 [ext_resource type="Script" uid="uid://chfb6ps4t2xtr" path="res://scenes/swatch_texture.gd" id="4_7a0bu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gch5q"]
+shader = ExtResource("1_gch5q")
+shader_parameter/Angle_deg = 30.0
+shader_parameter/Brightness = 2.5
+shader_parameter/Band_Soft = 0.20400000969
+shader_parameter/Stage_Count = 2
+shader_parameter/Stage1_Duration = 1.0
+shader_parameter/Stage2_Duration = 1.5
+shader_parameter/Stage3_Duration = 1.0
+shader_parameter/Stage1_Width = 0.12
+shader_parameter/Stage2_Width = 0.12
+shader_parameter/Stage3_Width = 0.12
+shader_parameter/Stage1_LeftToRight = true
+shader_parameter/Stage2_LeftToRight = false
+shader_parameter/Stage3_LeftToRight = false
+shader_parameter/One_Shot = false
+shader_parameter/OneShot_Delay = 0.0
+shader_parameter/Phase_Offset = 0.0
+shader_parameter/Wiggle_Angle = false
+shader_parameter/Wiggle_Amount_deg = 15.0
+shader_parameter/Shine_Pause = 0.4
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4m81n"]
 viewport_path = NodePath("SwatchViewport")
@@ -38,6 +61,8 @@ columns = 16
 script = ExtResource("1_diy5i")
 
 [node name="SwatchTexture" type="TextureRect" parent="." unique_id=1536719344]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gch5q")
 layout_mode = 2
 texture = SubResource("ViewportTexture_4m81n")
 script = ExtResource("4_7a0bu")

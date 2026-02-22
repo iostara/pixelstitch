@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://b62isux5v8q1h"]
 
-[ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scenes/library_panel.gd" id="1_ihaxc"]
+[ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scripts/library_panel.gd" id="1_ihaxc"]
 [ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
 [ext_resource type="Script" uid="uid://ckbf2hmfpdo3b" path="res://scenes/mode_toggle_button.gd" id="2_g7g41"]
-[ext_resource type="Script" uid="uid://buq5qd4v664q5" path="res://scenes/palette_panel.gd" id="3_g7g41"]
 [ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scenes/tile_palette_grid.gd" id="4_ju4vq"]
 
 [node name="ScreenPanel" type="HBoxContainer" unique_id=701167274]
@@ -37,7 +36,6 @@ layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
-script = ExtResource("3_g7g41")
 
 [node name="TilePaletteGrid" type="GridContainer" parent="PalettePanel" unique_id=1738070912]
 layout_mode = 2

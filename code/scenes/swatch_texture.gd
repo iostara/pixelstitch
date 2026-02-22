@@ -1,3 +1,4 @@
+@tool
 extends TextureRect
 
 #TODO: maybe this texturerect, using a viewport texture, can convert that image to a Texture2D resource at runtime which can then be used on the canvas.

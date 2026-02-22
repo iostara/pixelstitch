@@ -1,13 +1,17 @@
+@tool
+
 extends GridContainer
 
 @onready var tile_swatch = $"../.."
 @onready var dot_scene = preload("res://scenes/swatch_dot.tscn")
+
+
 @onready var swatch_hue : float = randf_range(0.0,1.0)
 @onready var swatch_saturation : float = randf_range(0.0,1.0)
 @onready var swatch_value : float = randf_range(0.0,1.0)
 @onready var img
 @onready var tex
-@onready var tile_index : int
+@onready var swatch_index : int
 
 func _ready() -> void:
 	var target_size = Vector2i(tile_swatch.size)
@@ -26,5 +30,5 @@ func spawn_dots_until_full():
 		var last_child : ColorRect = get_child(get_child_count()-1)
 		last_child.set_hsv(swatch_hue)
 
-func set_tile_index_on_self(parent_index : int):
-	tile_index = parent_index
+func set_swatch_index_on_self(parent_index : int):
+	swatch_index = parent_index

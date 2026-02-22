@@ -1,3 +1,5 @@
+@tool
+
 extends GridContainer
 
 @onready var swatch_scene = preload("res://scenes/tile_swatch.tscn")
