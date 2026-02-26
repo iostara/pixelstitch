@@ -6,11 +6,13 @@
 [ext_resource type="Script" uid="uid://dkefyk6cdshv1" path="res://scenes/swatch_viewport.gd" id="2_ug8tt"]
 [ext_resource type="Script" uid="uid://dvf8pjnga5r5a" path="res://addons/multi_touchscreenbutton/script.gd" id="3_4m81n"]
 [ext_resource type="Script" uid="uid://chfb6ps4t2xtr" path="res://scenes/swatch_texture.gd" id="4_7a0bu"]
+[ext_resource type="Script" uid="uid://1px3bcs8pxpx" path="res://scenes/shader_toggle.gd" id="7_w2uy4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gch5q"]
+resource_local_to_scene = true
 shader = ExtResource("1_gch5q")
 shader_parameter/Angle_deg = 30.0
-shader_parameter/Brightness = 2.5
+shader_parameter/Brightness = 0.0
 shader_parameter/Band_Soft = 0.20400000969
 shader_parameter/Stage_Count = 2
 shader_parameter/Stage1_Duration = 1.0
@@ -31,6 +33,42 @@ shader_parameter/Shine_Pause = 0.4
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4m81n"]
 viewport_path = NodePath("SwatchViewport")
+
+[sub_resource type="Animation" id="Animation_p34ry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwatchTexture:material:shader_parameter/Brightness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8l1h0"]
+resource_name = "toggle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwatchTexture:material:shader_parameter/Brightness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.750000035625]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04nr6"]
+_data = {
+&"RESET": SubResource("Animation_p34ry"),
+&"toggle": SubResource("Animation_8l1h0")
+}
 
 [node name="TileSwatch" type="AspectRatioContainer" unique_id=350569231]
 editor_description = "The frame's job here is mostly to hold the aspect ratio of the swatch."
@@ -66,6 +104,11 @@ material = SubResource("ShaderMaterial_gch5q")
 layout_mode = 2
 texture = SubResource("ViewportTexture_4m81n")
 script = ExtResource("4_7a0bu")
+
+[node name="ShaderToggleAnimator" type="AnimationPlayer" parent="." unique_id=1616343152]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_04nr6")
+script = ExtResource("7_w2uy4")
 
 [node name="MultiTouchScreenButton" type="TextureButton" parent="." unique_id=669754705]
 layout_mode = 2
