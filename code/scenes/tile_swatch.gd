@@ -10,8 +10,6 @@ func _ready() -> void:
 	swatch_index = get_parent().get_child_count()-1
 	set_grid_index() ##the grid needs to know what its index is since it is the one signalling the Global script
 	Event.swatch_selected.connect(set_active_shader)
-	#toggle_shader_animator(false)
-	
 	
 	#HACK: disabled for now since it only works when I manually size these components
 #	swatch_grid.set_size(Vector2i(size.x,size.x)) 
@@ -19,7 +17,7 @@ func _ready() -> void:
 
 func toggle_shader_animator(active : bool):
 	if active:
-		shader_toggle_animator.play("toggle")
+		shader_toggle_animator.play("toggle",)
 	else:
 		shader_toggle_animator.play_backwards("toggle")
 	pass
@@ -33,7 +31,6 @@ func set_selected_swatch():
 func _on_multi_touch_screen_button_pressed() -> void:
 	set_selected_swatch()
 	
-
 func set_grid_index():
 	swatch_grid.set_swatch_index_on_self(swatch_index)
 
