@@ -19,6 +19,7 @@ func spawn_swatches_until_full():
 		while get_child_count() < 8:
 			spawn_swatch()
 
+
 func mode_switch():
 	if Global.mode == Global.modes.TILE_DESIGNER:
 		reset_palette()
