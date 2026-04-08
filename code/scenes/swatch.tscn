@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bfbo7vjttoyii"]
 
-[ext_resource type="Script" uid="uid://ds3pal5cs1xlt" path="res://scenes/tile_swatch.gd" id="1_4m81n"]
-[ext_resource type="Script" uid="uid://dec10qjsrra6t" path="res://scenes/swatch_color.gd" id="2_4m81n"]
+[ext_resource type="Script" uid="uid://ds3pal5cs1xlt" path="res://scenes/swatch.gd" id="1_4m81n"]
 [ext_resource type="Script" uid="uid://dvf8pjnga5r5a" path="res://addons/multi_touchscreenbutton/script.gd" id="3_4m81n"]
 
-[node name="TileSwatch" type="AspectRatioContainer" unique_id=350569231]
+[node name="Swatch" type="AspectRatioContainer" unique_id=350569231]
 editor_description = "The frame's job here is mostly to hold the aspect ratio of the swatch."
 custom_minimum_size = Vector2(16, 16)
 offset_right = 165.0
@@ -14,8 +13,8 @@ size_flags_vertical = 3
 script = ExtResource("1_4m81n")
 
 [node name="SwatchColor" type="ColorRect" parent="." unique_id=532047338]
+unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("2_4m81n")
 
 [node name="MultiTouchScreenButton" type="TextureButton" parent="." unique_id=669754705]
 layout_mode = 2

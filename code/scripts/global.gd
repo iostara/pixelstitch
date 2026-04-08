@@ -8,7 +8,7 @@ var primary_color : Color
 var secondary_color : Color
 var tertiary_color : Color
 var pitch_from_color : float
-var selected_swatch_index : int = 0
+
 
 enum modes {TILE_DESIGNER, QUILT_DESIGNER}
 

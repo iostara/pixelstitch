@@ -24,7 +24,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 Global="*res://scripts/global.gd"
 Screen="*uid://67ahy544jxgr"
 Event="*uid://bjtvo7yr71af8"
-PixelPalette="*uid://b8nvv5ho8tafj"
+Palette="*uid://b8nvv5ho8tafj"
 
 [display]
 
@@ -42,6 +42,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 pixels=""
 grid_size_controller=""
 color_picker=""
+tile=""
 
 [input]
 

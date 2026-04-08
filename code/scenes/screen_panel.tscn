@@ -37,7 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="TilePaletteGrid" type="GridContainer" parent="PalettePanel" unique_id=1738070912]
+[node name="PaletteGrid" type="GridContainer" parent="PalettePanel" unique_id=1738070912]
 layout_mode = 2
 theme_override_constants/h_separation = 64
 theme_override_constants/v_separation = 64
