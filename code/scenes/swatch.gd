@@ -7,20 +7,20 @@ class_name Swatch
 
 
 func _ready() -> void:
-	
 	Palette.swatches.append(self)
 	set_swatch_index(Palette.get_swatch_index_from_array(self))
 	
-	pass
+	
 func set_swatch_index(_index : int): 
 	swatch_index = _index
 func get_swatch_index():
 	return swatch_index
 func set_selected_swatch():
 	Palette.selected_swatch_index = swatch_index
-	Screen.print(str("setting Palette.selected_swatch_index to ", str(swatch_index)))
+	#Screen.print(str("setting Palette.selected_swatch_index to ", str(swatch_index)))
 	Event.swatch_selected.emit()
-	pass
+	Event.update_background.emit()
+	
 
 func set_swatch_color(_color:Color):
 	swatch_color.set_color(_color)

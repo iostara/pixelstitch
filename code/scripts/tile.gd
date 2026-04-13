@@ -23,8 +23,8 @@ func set_random_index():
 	tile_index = randi_range(0,7)
 
 
-func _on_multi_touch_screen_button_pressed() -> void:
-	draw_tile()
+#func _on_multi_touch_screen_button_pressed() -> void:
+	#draw_tile()
 
 func draw_tile():
 	update_tile_index()

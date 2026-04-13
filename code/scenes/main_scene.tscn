@@ -2,10 +2,23 @@
 
 [ext_resource type="Script" uid="uid://h4dwmxhbay64" path="res://scripts/main_scene.gd" id="1_x6qfb"]
 [ext_resource type="PackedScene" uid="uid://b62isux5v8q1h" path="res://scenes/screen_panel.tscn" id="2_2c62f"]
+[ext_resource type="Script" uid="uid://b0fuqebds3y7a" path="res://scenes/selected_color_grid.gd" id="2_7ykc4"]
 
 [node name="MainScene" type="Node" unique_id=930891614]
 script = ExtResource("1_x6qfb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1128147757]
 
+[node name="SelectedColorGrid" type="ColorRect" parent="CanvasLayer" unique_id=1783836237]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("2_7ykc4")
+
 [node name="ScreenPanel" parent="CanvasLayer" unique_id=735552362 instance=ExtResource("2_2c62f")]
+metadata/_edit_use_anchors_ = true
