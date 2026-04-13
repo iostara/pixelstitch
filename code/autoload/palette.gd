@@ -1,15 +1,8 @@
 extends Node
 
-#TODO this autoload exists to handle the color palette and pixels designated to its colors on a global level. swatches signal up to this autoload, and the color values get broadcast out to colored tiles
-
 @onready var swatches : Array[Swatch] ##holds references to the swatches themselves
 @onready var colors : Array[Color] ##color value array whose indices correspond to those of swatches
 @onready var selected_swatch_index : int = 0
-
-
-
-#func _ready() -> void:
-#	roll_colors()
 
 func get_swatch_index_from_array(_swatch:Swatch):
 	return swatches.find(_swatch)
@@ -51,11 +44,11 @@ func generate_palette(): ##TODO will replace update_swatch_colors()
 			_hue = _hue + randf_range(0.2,0.8)
 			if _hue > 1.0: #HACK _hue + _interval
 				_hue = _hue - 1.0
-			_saturation = _saturation - _interval
+			_saturation = _saturation - (_interval/2)
 			_value = _value + _interval
 		else:
 			_hue = randf_range(0.0,1.0)
-			_saturation = 1.0 - _margin
-			_value = _margin
+			_saturation = 1.0
+			_value = (_margin*2)
 		_color = Color.from_hsv(_hue, _saturation, _value)
 		colors.append(_color)

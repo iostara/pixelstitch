@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxvod76i405yo"]
+[gd_scene format=3 uid="uid://dxvod76i405yo"]
 
-[ext_resource type="Script" uid="uid://cadxdelslv0se" path="res://scripts/pixel_grid.gd" id="1_7sjk7"]
+[ext_resource type="Script" uid="uid://brj2cvv4yfemi" path="res://scripts/pixel_grid.gd" id="1_7sjk7"]
 
-[node name="PixelGrid" type="GridContainer"]
+[node name="PixelGrid" type="GridContainer" unique_id=291757187]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
