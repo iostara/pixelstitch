@@ -13,10 +13,11 @@ func get_swatch_index_from_array(_swatch:Swatch):
 	return swatches.find(_swatch)
 
 func roll_colors():
-	#clear_colors()
+	clear_colors()
+	
 	for n in swatches.size():
 		colors.append(Color(randf_range(0.0,1.0),randf_range(0.0,1.0),randf_range(0.0,1.0)))
-		update_colors()
+	update_colors()
 		
 func clear_colors():
 	colors.clear()
@@ -28,9 +29,10 @@ func update_colors():
 
 func update_swatch_colors():
 	for n in swatches.size():
-		swatches[n].set_swatch_color(colors[n])
+		swatches[n-1].set_swatch_color(colors[n-1])
 
 func update_tile_colors():
 	get_tree().call_group("tile","update_tile_color")
+	
 	#TODO first hit every tile by looking up scene tree and then everything in tile group. then get index for each and apply respective color for that index
 	pass

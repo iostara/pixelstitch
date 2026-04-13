@@ -3,7 +3,9 @@ extends AspectRatioContainer
 class_name Swatch
 
 @onready var swatch_index : int
-@onready var swatch_color = %SwatchColor.color
+@onready var swatch_color = %SwatchColor
+
+
 func _ready() -> void:
 	
 	Palette.swatches.append(self)
@@ -19,8 +21,9 @@ func set_selected_swatch():
 	Screen.print(str("setting Palette.selected_swatch_index to ", str(swatch_index)))
 	Event.swatch_selected.emit()
 	pass
+
 func set_swatch_color(_color:Color):
-	swatch_color = _color
+	swatch_color.set_color(_color)
 	
 func _on_multi_touch_screen_button_pressed() -> void:
 	set_selected_swatch()

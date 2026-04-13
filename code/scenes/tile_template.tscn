@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bcu35366nqr37"]
 
 [ext_resource type="Script" uid="uid://cqkwkm04k6bv6" path="res://scripts/tile.gd" id="1_xmll8"]
-[ext_resource type="Resource" uid="uid://q5ep85d7qk2a" path="res://resources/map_palette.tres" id="2_frkg8"]
+[ext_resource type="Script" uid="uid://dvf8pjnga5r5a" path="res://addons/multi_touchscreenbutton/script.gd" id="2_frkg8"]
+[ext_resource type="Script" uid="uid://dlq4i0i1af4qi" path="res://scripts/tile_color.gd" id="3_jy3bm"]
 
-[node name="Tile" type="ColorRect" unique_id=760292587]
+[node name="Tile" type="AspectRatioContainer" unique_id=384713532]
 custom_minimum_size = Vector2(16, 16)
 anchors_preset = -1
 anchor_right = 0.008
 anchor_bottom = 0.015000001
-offset_left = -0.3199997
 offset_right = 0.6399994
 offset_bottom = -0.20000076
 grow_horizontal = 2
@@ -16,4 +16,21 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xmll8")
-palette_library = Array[Resource]([ExtResource("2_frkg8")])
+
+[node name="TileColor" type="ColorRect" parent="." unique_id=331816491]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_jy3bm")
+
+[node name="MultiTouchScreenButton" type="TextureButton" parent="." unique_id=338473175]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+action_mode = 0
+script = ExtResource("2_frkg8")
+metadata/_custom_type_script = "uid://dvf8pjnga5r5a"
+
+[connection signal="pressed" from="MultiTouchScreenButton" to="." method="_on_multi_touch_screen_button_pressed"]
