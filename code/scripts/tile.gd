@@ -28,7 +28,7 @@ func set_random_index():
 
 func draw_tile():
 	update_tile_index()
-	tile_color.update_tile_color(tile_index)
+	update_tile_color()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
