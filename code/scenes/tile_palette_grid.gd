@@ -1,23 +1,20 @@
-@tool
-
 extends GridContainer
 
-@onready var swatch_scene = preload("res://scenes/tile_swatch.tscn")
+@onready var swatch_scene = preload("res://scenes/swatch.tscn")
 
 func _ready() -> void:
 	spawn_swatches_until_full()
-	Event.mode_toggle.connect(mode_switch)
 
 func spawn_swatch():
 	var swatch_instance = swatch_scene.instantiate()
 	add_child(swatch_instance)
 
 func spawn_swatches_until_full():
-	if Global.mode == Global.modes.TILE_DESIGNER:
-		pass
-	else:
-		while get_child_count() < 8:
-			spawn_swatch()
+	while get_child_count() < 8:
+		spawn_swatch()
+	Palette.roll_colors()
+	#once spawned, we want to append the last child spawned to the array stored in the global pixelpalette. if we tell the child to handle this on instantiation, 
+
 
 func mode_switch():
 	if Global.mode == Global.modes.TILE_DESIGNER:
