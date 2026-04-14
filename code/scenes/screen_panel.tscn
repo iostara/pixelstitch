@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://b62isux5v8q1h"]
 
 [ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scripts/library_panel.gd" id="1_ihaxc"]
+[ext_resource type="Texture2D" uid="uid://bo4er8hypfj5k" path="res://images/icon04.png" id="2_0bsfb"]
 [ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
 [ext_resource type="Script" uid="uid://b2hutcggn2k6w" path="res://scenes/roll_colors_button.gd" id="2_g7g41"]
+[ext_resource type="Script" uid="uid://bm2aep7com75u" path="res://scripts/undo.gd" id="3_ju4vq"]
+[ext_resource type="Texture2D" uid="uid://drf8oi50bi6rx" path="res://images/icon02.png" id="4_1nobc"]
 [ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scenes/tile_palette_grid.gd" id="4_ju4vq"]
+[ext_resource type="Script" uid="uid://betu7lnu5u0s6" path="res://scripts/redo.gd" id="4_nyuq0"]
+[ext_resource type="Texture2D" uid="uid://dfj5ks6veighq" path="res://images/icon03.png" id="6_kr66w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7g41"]
 
@@ -35,7 +40,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ju4vq")
-text = "roll new colors"
+icon = ExtResource("2_0bsfb")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_g7g41")
 
 [node name="Undo" type="Button" parent="ControlPanel/VBoxContainer" unique_id=659786159]
@@ -43,16 +50,20 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ju4vq")
-text = "Undo 
-(not working yet)"
+icon = ExtResource("4_1nobc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_ju4vq")
 
 [node name="Redo" type="Button" parent="ControlPanel/VBoxContainer" unique_id=1069816339]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ju4vq")
-text = "Redo 
-(not working yet)"
+icon = ExtResource("6_kr66w")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_nyuq0")
 
 [node name="GridPanel" parent="." unique_id=1677062162 instance=ExtResource("2_4k5a0")]
 layout_mode = 2
@@ -72,3 +83,5 @@ columns = 2
 script = ExtResource("4_ju4vq")
 
 [connection signal="pressed" from="ControlPanel/VBoxContainer/RollColorsButton" to="ControlPanel/VBoxContainer/RollColorsButton" method="_on_pressed"]
+[connection signal="pressed" from="ControlPanel/VBoxContainer/Undo" to="ControlPanel/VBoxContainer/Undo" method="_on_pressed"]
+[connection signal="pressed" from="ControlPanel/VBoxContainer/Redo" to="ControlPanel/VBoxContainer/Redo" method="_on_pressed"]

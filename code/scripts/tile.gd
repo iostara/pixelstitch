@@ -10,26 +10,15 @@ class_name Tile
 func _ready() -> void:
 	add_to_group("tile")
 	set_random_index()
-
-
-func update_tile_index():
-	tile_index = Palette.selected_swatch_index
-	
-
 func update_tile_color():
 	tile_color.update_tile_color(tile_index)
-
 func set_random_index():
 	tile_index = randi_range(0,7)
-
-
-#func _on_multi_touch_screen_button_pressed() -> void:
-	#draw_tile()
-
+func get_tile_index():
+	return tile_index
 func draw_tile():
-	update_tile_index()
-	update_tile_color()
-
+	if tile_index != Palette.get_selected_swatch_index():
+		GlobalUndoRedo.draw_tile(self)
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		if event.position.x > global_position.x and event.position.x < global_position.x + size.x:
