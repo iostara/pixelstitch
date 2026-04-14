@@ -25,6 +25,7 @@ Global="*res://scripts/global.gd"
 Screen="*uid://67ahy544jxgr"
 Event="*uid://bjtvo7yr71af8"
 Palette="*uid://b8nvv5ho8tafj"
+GlobalUndoRedo="*uid://c7qhqk27iy325"
 
 [display]
 
