@@ -3,16 +3,74 @@
 [ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scripts/library_panel.gd" id="1_ihaxc"]
 [ext_resource type="Texture2D" uid="uid://bo4er8hypfj5k" path="res://images/icon04.png" id="2_0bsfb"]
 [ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
-[ext_resource type="Script" uid="uid://b2hutcggn2k6w" path="res://scenes/roll_colors_button.gd" id="2_g7g41"]
+[ext_resource type="Script" uid="uid://b2hutcggn2k6w" path="res://scripts/roll_colors_button.gd" id="2_g7g41"]
 [ext_resource type="Script" uid="uid://bm2aep7com75u" path="res://scripts/undo.gd" id="3_ju4vq"]
 [ext_resource type="Texture2D" uid="uid://drf8oi50bi6rx" path="res://images/icon02.png" id="4_1nobc"]
-[ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scenes/tile_palette_grid.gd" id="4_ju4vq"]
+[ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scripts/tile_palette_grid.gd" id="4_ju4vq"]
 [ext_resource type="Script" uid="uid://betu7lnu5u0s6" path="res://scripts/redo.gd" id="4_nyuq0"]
 [ext_resource type="Texture2D" uid="uid://dfj5ks6veighq" path="res://images/icon03.png" id="6_kr66w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7g41"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju4vq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bsfb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nobc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kr66w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gvwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2js75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqno7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_smk8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_enh7f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uciod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eg8u3"]
+
+[sub_resource type="Animation" id="Animation_0bsfb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1nobc"]
+resource_name = "cycle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5, 3.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.16666675, 1, 0, 1), Color(0, 1, 0.8499999, 1), Color(0.57165176, 0.2393597, 1, 1), Color(1, 0, 0.016666412, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kr66w"]
+_data = {
+&"RESET": SubResource("Animation_0bsfb"),
+&"cycle": SubResource("Animation_1nobc")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihaxc"]
 
@@ -40,16 +98,41 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ju4vq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0bsfb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1nobc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kr66w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3gvwj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2js75")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aqno7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_smk8g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_enh7f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_uciod")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8u3")
+action_mode = 0
 icon = ExtResource("2_0bsfb")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_g7g41")
+
+[node name="ColorCycler" type="AnimationPlayer" parent="ControlPanel/VBoxContainer/RollColorsButton" unique_id=2023910732]
+libraries/ = SubResource("AnimationLibrary_kr66w")
+autoplay = &"cycle"
 
 [node name="Undo" type="Button" parent="ControlPanel/VBoxContainer" unique_id=659786159]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ju4vq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0bsfb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1nobc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kr66w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3gvwj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2js75")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aqno7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_smk8g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_enh7f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_uciod")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8u3")
 icon = ExtResource("4_1nobc")
 icon_alignment = 1
 expand_icon = true
@@ -60,6 +143,16 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ju4vq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0bsfb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1nobc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kr66w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3gvwj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2js75")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aqno7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_smk8g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_enh7f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_uciod")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8u3")
 icon = ExtResource("6_kr66w")
 icon_alignment = 1
 expand_icon = true
@@ -77,8 +170,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ihaxc")
 
 [node name="PaletteGrid" type="GridContainer" parent="PalettePanel" unique_id=1738070912]
 layout_mode = 2
-theme_override_constants/h_separation = 64
-theme_override_constants/v_separation = 64
 columns = 2
 script = ExtResource("4_ju4vq")
 

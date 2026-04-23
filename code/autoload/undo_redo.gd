@@ -14,6 +14,7 @@ func draw_tile(_tile:Tile):
 	undo_redo.add_undo_method(_tile.update_tile_color)
 	undo_redo.commit_action()
 func palette_swap():
+	#TODO palette swap needs to happen through this autoload so that undo affects it
 	pass
 func undo():
 	undo_redo.undo()
