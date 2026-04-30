@@ -7,6 +7,9 @@ extends Node
 func get_swatch_index_from_array(_swatch:Swatch):
 	return swatches.find(_swatch)
 
+func get_selected_swatch_index():
+	return selected_swatch_index
+
 func roll_colors():
 	clear_colors()
 	generate_palette()
@@ -30,7 +33,7 @@ func update_tile_colors():
 func get_selected_color():
 	return colors.get(selected_swatch_index)
 
-func generate_palette(): ##TODO will replace update_swatch_colors()
+func generate_palette():
 	var _max_interval : float = 0.125
 	var _min_interval : float = 0.0625
 	var _interval : float = randf_range(_min_interval,_max_interval)
