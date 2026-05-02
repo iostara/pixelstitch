@@ -2,15 +2,28 @@
 
 [ext_resource type="Script" uid="uid://bwgwljqmy3c0x" path="res://scripts/library_panel.gd" id="1_ihaxc"]
 [ext_resource type="Texture2D" uid="uid://bo4er8hypfj5k" path="res://images/icon04.png" id="2_0bsfb"]
+[ext_resource type="Shader" uid="uid://d1jg6fgg58epy" path="res://shaders/squiggle.gdshader" id="2_1nobc"]
 [ext_resource type="PackedScene" uid="uid://3s3i1ilg4efa" path="res://scenes/grid_panel.tscn" id="2_4k5a0"]
 [ext_resource type="Script" uid="uid://b2hutcggn2k6w" path="res://scripts/roll_colors_button.gd" id="2_g7g41"]
 [ext_resource type="Script" uid="uid://bm2aep7com75u" path="res://scripts/undo.gd" id="3_ju4vq"]
-[ext_resource type="Texture2D" uid="uid://drf8oi50bi6rx" path="res://images/icon02.png" id="4_1nobc"]
 [ext_resource type="Script" uid="uid://cwwinybxcigl5" path="res://scripts/tile_palette_grid.gd" id="4_ju4vq"]
 [ext_resource type="Script" uid="uid://betu7lnu5u0s6" path="res://scripts/redo.gd" id="4_nyuq0"]
-[ext_resource type="Texture2D" uid="uid://dfj5ks6veighq" path="res://images/icon03.png" id="6_kr66w"]
+[ext_resource type="Texture2D" uid="uid://dwai6j1gpeef3" path="res://images/undo.png" id="5_1nobc"]
+[ext_resource type="Texture2D" uid="uid://b7lujdndugjmp" path="res://images/redo.png" id="7_kr66w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7g41"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kr66w"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3gvwj"]
+noise = SubResource("FastNoiseLite_kr66w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kr66w"]
+shader = ExtResource("2_1nobc")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.25
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_3gvwj")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju4vq"]
 
@@ -72,6 +85,30 @@ _data = {
 &"cycle": SubResource("Animation_1nobc")
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1nobc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kr66w"]
+noise = SubResource("FastNoiseLite_1nobc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2js75"]
+shader = ExtResource("2_1nobc")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.25
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_kr66w")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3gvwj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2js75"]
+noise = SubResource("FastNoiseLite_3gvwj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nobc"]
+shader = ExtResource("2_1nobc")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.25
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_2js75")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihaxc"]
 
 [node name="ScreenPanel" type="HBoxContainer" unique_id=701167274]
@@ -94,6 +131,7 @@ script = ExtResource("1_ihaxc")
 layout_mode = 2
 
 [node name="RollColorsButton" type="Button" parent="ControlPanel/VBoxContainer" unique_id=1129812146]
+material = SubResource("ShaderMaterial_kr66w")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
@@ -119,6 +157,7 @@ libraries/ = SubResource("AnimationLibrary_kr66w")
 autoplay = &"cycle"
 
 [node name="Undo" type="Button" parent="ControlPanel/VBoxContainer" unique_id=659786159]
+material = SubResource("ShaderMaterial_2js75")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
@@ -133,12 +172,13 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_smk8g"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_enh7f")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_uciod")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8u3")
-icon = ExtResource("4_1nobc")
+icon = ExtResource("5_1nobc")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_ju4vq")
 
 [node name="Redo" type="Button" parent="ControlPanel/VBoxContainer" unique_id=1069816339]
+material = SubResource("ShaderMaterial_1nobc")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
@@ -153,7 +193,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_smk8g"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_enh7f")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_uciod")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eg8u3")
-icon = ExtResource("6_kr66w")
+icon = ExtResource("7_kr66w")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("4_nyuq0")

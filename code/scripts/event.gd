@@ -2,3 +2,4 @@ extends Node
 
 signal swatch_selected
 signal update_background
+signal hide_all_swatch_shaders
