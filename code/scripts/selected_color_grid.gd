@@ -6,6 +6,6 @@ func _ready() -> void:
 func update_color():
 	#var _color : Color = Palette.get_selected_color()
 	#var _tween = create_tween()
-	#_tween.tween_property(self,"color",_color,0.25)
 	#set_color(_color)
+	#_tween.tween_property(self,"color",Color(0.0, 0.0, 0.0, 1.0),1.75)
 	pass

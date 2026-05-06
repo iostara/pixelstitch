@@ -33,6 +33,8 @@ func set_swatch_color(_color:Color):
 	
 func _on_multi_touch_screen_button_pressed() -> void:
 	set_selected_swatch()
+	Event.update_background.emit()
+	Event.swatch_sfx.emit()
 
 
 #func set_active_shader():

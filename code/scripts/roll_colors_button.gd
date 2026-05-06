@@ -6,6 +6,7 @@ extends Button
 func _on_pressed() -> void:
 	Palette.roll_colors()
 	animate_press()
+	Event.roll_sfx.emit()
 
 func animate_press():
 	var _tween = create_tween()

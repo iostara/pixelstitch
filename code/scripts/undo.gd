@@ -4,6 +4,7 @@ extends Button
 func _on_pressed() -> void:
 	GlobalUndoRedo.undo()
 	animate_press()
+	Event.undo_sfx.emit()
 
 func animate_press():
 	var _tween = create_tween()

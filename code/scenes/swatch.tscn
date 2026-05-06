@@ -15,7 +15,7 @@ noise = SubResource("FastNoiseLite_qv8a5")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yg6y5"]
 shader = ExtResource("2_4gd2u")
 shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 0.5
+shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = SubResource("NoiseTexture2D_tohx6")
 
@@ -31,7 +31,7 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/direction = -1.0
 shader_parameter/frequency = 15.0
 shader_parameter/speed = 3.0
-shader_parameter/radius = 0.9999999776480001
+shader_parameter/radius = 0.999999977648
 shader_parameter/line_thickness = 0.03
 
 [node name="Swatch" type="AspectRatioContainer" unique_id=350569231]

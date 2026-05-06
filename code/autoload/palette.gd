@@ -4,6 +4,9 @@ extends Node
 @onready var colors : Array[Color] ##color value array whose indices correspond to those of swatches
 @onready var selected_swatch_index : int = 0
 
+func _ready() -> void:
+	generate_palette(true)
+
 func get_swatch_index_from_array(_swatch:Swatch):
 	return swatches.find(_swatch)
 
@@ -11,8 +14,7 @@ func get_selected_swatch_index():
 	return selected_swatch_index
 
 func roll_colors():
-	clear_colors()
-	generate_palette()
+	GlobalUndoRedo.palette_swap()
 	update_colors()
 
 func clear_colors():
@@ -33,25 +35,37 @@ func update_tile_colors():
 func get_selected_color():
 	return colors.get(selected_swatch_index)
 
-func generate_palette():
-	var _max_interval : float = 0.125
-	var _min_interval : float = 0.0625
-	var _interval : float = randf_range(_min_interval,_max_interval)
-	var _margin : float = (1.0 - _interval * 8) / 2
+func generate_palette(_on_init : bool):
+
+	#HACK old palette generation code
+	#var _max_interval : float = 0.125
+	#var _min_interval : float = 0.0625
+	#var _interval : float = randf_range(_min_interval,_max_interval)
+	#var _margin : float = (1.0 - _interval * 8) / 2
 	var _hue : float
 	var _saturation : float
 	var _value : float
 	var _color : Color
+	var _new_colors : Array[Color]
 	for n in swatches.size():
-		if n > 0:
-			_hue = _hue + randf_range(0.2,0.8)
-			if _hue > 1.0: #HACK _hue + _interval
-				_hue = _hue - 1.0
-			_saturation = _saturation - (_interval/2)
-			_value = _value + _interval
-		else:
-			_hue = randf_range(0.0,1.0)
-			_saturation = 1.0
-			_value = (_margin*2)
+		#if n > 0:
+		_hue = randf_range(0.0,1.0)
+			#_hue = _hue + randf_range(0.2,0.8)
+			#if _hue > 1.0: #HACK _hue + _interval
+				#_hue = _hue - 1.0
+			#_saturation = _saturation - (_interval/2)
+		_saturation = randf_range(0.25,1.0)
+			#_value = _value + _interval
+		_value = randf_range(0.25,1.0)
+		#else:
+			#_hue = randf_range(0.0,1.0)
+			#_saturation = 1.0
+			#_value = (_margin*2)
 		_color = Color.from_hsv(_hue, _saturation, _value)
-		colors.append(_color)
+		if _on_init:
+			colors.append(_color)
+		else:
+			_new_colors.append(_color)
+	return _new_colors
+	
+	

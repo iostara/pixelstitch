@@ -19,6 +19,7 @@ func get_tile_index():
 func draw_tile():
 	if tile_index != Palette.get_selected_swatch_index():
 		GlobalUndoRedo.draw_tile(self)
+		Event.draw_sfx.emit()
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		if event.position.x > global_position.x and event.position.x < global_position.x + size.x:

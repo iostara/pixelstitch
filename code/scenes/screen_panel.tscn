@@ -16,6 +16,7 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kr66w"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3gvwj"]
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_kr66w")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kr66w"]
@@ -88,6 +89,7 @@ _data = {
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1nobc"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kr66w"]
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_1nobc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2js75"]
@@ -100,6 +102,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_kr66w")
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3gvwj"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2js75"]
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_3gvwj")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nobc"]
