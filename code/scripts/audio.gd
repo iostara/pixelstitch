@@ -12,6 +12,6 @@ func _ready() -> void:
 
 
 func trigger_sfx(_index:int):
-	pitch_scale = randf_range(0.5,1.5)
+	pitch_scale = randf_range(0.5,1.0)
 	set_stream(sfx_bank[_index])
 	play()
